@@ -17,14 +17,17 @@ jobs:
       with:
         node-version: '20'  # Specify your Node.js version
 
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
+      
     - name: Install Dependencies
       run: npm install
 
     - name: Build Project
-      run: ng build --prod --base-href JankaWeb
+      run: ng build --prod --base-href /JankaWeb/
 
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.4
+      uses: JamesIves/github-pages-deploy-action@4.6.0
       with:
         branch: gh-pages  # The branch the action should deploy to.
         folder: dist/janka-web  # The folder the action should deploy.
