@@ -28,7 +28,7 @@
   </div>
 
 <!--  <mat-form-field appearance="fill" class="full-width">-->
-  <mat-form-field [style.width.vw]="100">
+  <mat-form-field [style.width.vw]="90">
     <mat-label>Zpráva</mat-label>
     <textarea matInput name="zprava" [(ngModel)]="contact.zprava" #zprava="ngModel" required></textarea>
     <mat-error *ngIf="zprava.errors?.required && zprava.touched">
