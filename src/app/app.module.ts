@@ -17,6 +17,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import { ContactComponent } from './pages/contact/contact.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -30,6 +33,7 @@ import { ContactComponent } from './pages/contact/contact.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatTabsModule,
@@ -38,6 +42,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
   providers: [
     provideAnimationsAsync('animations')
