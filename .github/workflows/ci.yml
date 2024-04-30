@@ -3,7 +3,7 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Set this to the branch from which you want to deploy
+      - master  # Set this to the branch from which you want to deploy
 
 jobs:
   build:
