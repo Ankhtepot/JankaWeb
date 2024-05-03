@@ -6,8 +6,18 @@
         <mat-card-header>
           <mat-card-title>Custom Paintings</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="https://via.placeholder.com/500?text=Custom+Paintings" alt="Custom Paintings">
-        <mat-card-content>
+        <mat-card-content style="overflow: hidden">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div
+              mat-card-image
+              class="swiper-slide"
+              *ngFor="let img of getImages(Category.Paintings)"
+            >
+              <img mat-card-image src="{{ img }}" alt="Custom Paintings">
+            </div>
+          </div>
+        </div>
           <p>Get personalized artwork that speaks to your soul.</p>
         </mat-card-content>
       </mat-card>

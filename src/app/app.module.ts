@@ -20,6 +20,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
+import {NgOptimizedImage} from "@angular/common";
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import {FormsModule} from "@angular/forms";
     MatListModule,
     MatInputModule,
     MatFormFieldModule,
+    NgOptimizedImage,
   ],
   providers: [
     provideAnimationsAsync('animations')
