@@ -19,7 +19,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.swiper = new Swiper('.swiper-container', {
-      slidesPerView: 3,
+      slidesPerView: 5,
       centeredSlides: true,
       spaceBetween: 30,
       loop: true,
@@ -31,7 +31,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   getImages(category: Category) {
-    return this.imageService.getImages(category);
+    return this.imageService.getImages(category).map(image => image.miniatureUrl);
   }
 
   protected readonly Category = Category;

@@ -13,8 +13,9 @@
               mat-card-image
               class="swiper-slide"
               *ngFor="let img of getImages(Category.Paintings)"
+              style="display: flex; justify-content: center; align-items: center; height: 500px; width: 500px;"
             >
-              <img mat-card-image src="{{ img }}" alt="Custom Paintings">
+              <img mat-card-image [src]="img" alt="Custom Paintings">
             </div>
           </div>
         </div>

@@ -21,7 +21,6 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
-import { AppCarouselComponent } from './Components/carousel/app-carousel.component';
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 
 
@@ -32,7 +31,6 @@ import {MatProgressSpinner} from "@angular/material/progress-spinner";
     ServicesComponent,
     PageNotFoundComponent,
     ContactComponent,
-    AppCarouselComponent,
   ],
   imports: [
     BrowserModule,
