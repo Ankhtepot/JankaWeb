@@ -1,0 +1,37 @@
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import Swiper from "swiper";
+import {Category, ImagesService} from "../../services/images.service";
+
+@Component({
+  selector: 'app-carousel',
+  templateUrl: './carousel.component.html',
+  styleUrl: './carousel.component.scss'
+})
+export class CarouselComponent implements OnInit, AfterViewInit {
+  @Input() category: Category;
+  @Input() maxHeight: string;
+
+  swiper: Swiper;
+
+  constructor(private imageService: ImagesService) { }
+
+  ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 5,
+      centeredSlides: true,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 500,
+        disableOnInteraction: false,
+      },
+    });
+  }
+
+  getImages(): any[] {
+    return this.imageService.getImages(this.category).map(image => image.miniatureUrl);
+  }
+}

@@ -7,20 +7,11 @@
           <mat-card-title>Custom Paintings</mat-card-title>
         </mat-card-header>
         <mat-card-content style="overflow: hidden">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div
-              mat-card-image
-              class="swiper-slide"
-              *ngFor="let img of getImages(Category.Paintings)"
-              style="display: flex; justify-content: center; align-items: center; height: 500px; width: 500px;"
-            >
-              <img mat-card-image [src]="img" alt="Custom Paintings">
-            </div>
-          </div>
-        </div>
-          <p>Get personalized artwork that speaks to your soul.</p>
+            <app-carousel [category]="Category.Paintings" [maxHeight]="'250px'"></app-carousel>
         </mat-card-content>
+        <mat-card-footer>
+          <p style="text-align: center">Get personalized artwork that speaks to your soul.</p>
+        </mat-card-footer>
       </mat-card>
     </mat-tab>
     <mat-tab label="Photography">

@@ -1,0 +1,14 @@
+<!--<mat-card-content style="overflow: hidden">-->
+  <div class="swiper-container" style="background: darkcyan">
+    <div class="swiper-wrapper">
+      <div
+        class="swiper-slide"
+        *ngFor="let img of getImages()"
+        [ngStyle]="{'height': maxHeight, 'width': '500px', 'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}"
+      >
+        <img [src]="img" alt="Custom Paintings">
+      </div>
+    </div>
+  </div>
+
+<!--</mat-card-content>-->
