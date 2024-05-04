@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import Swiper from "swiper";
+import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import {Category, ImagesService} from "../../services/images.service";
 
 @Component({
@@ -19,15 +20,17 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.swiper = new Swiper('.swiper-container', {
+    this.swiper = new Swiper('.swiper', {
       slidesPerView: 5,
       centeredSlides: true,
       spaceBetween: 30,
       loop: true,
+      speed: 2000,
       autoplay: {
-        delay: 500,
+        delay: 2000,
         disableOnInteraction: false,
       },
+      modules: [Navigation, Pagination, Autoplay],
     });
   }
 
