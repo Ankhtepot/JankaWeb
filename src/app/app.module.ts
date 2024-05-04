@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -16,14 +16,18 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
-import { ContactComponent } from './pages/contact/contact.component';
+import {ContactComponent} from './pages/contact/contact.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import { CarouselComponent } from './Components/carousel/carousel.component';
+import {CarouselComponent} from './Components/carousel/carousel.component';
 
+import {register} from'swiper/element';
+import { SwiperDirective } from './Directives/swiper.directive';
+
+register();
 
 @NgModule({
   declarations: [
@@ -32,7 +36,6 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
     ServicesComponent,
     PageNotFoundComponent,
     ContactComponent,
-    CarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,11 +53,13 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
     MatFormFieldModule,
     NgOptimizedImage,
     MatProgressSpinner,
+    CarouselComponent,
   ],
   providers: [
     provideAnimationsAsync('animations')
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {
 }
