@@ -1,3 +1,12 @@
+.header {
+  width: 100%;
+  position: fixed; // or 'absolute' depending on your layout needs
+  top: 0;
+  left: 0;
+  z-index: 1000; // High z-index to keep it above other content
+  background-color: turquoise; // White background
+}
+
 .nav-container {
   display: flex;       // Align children (anchor tags) in a row
   justify-content: flex-start; // Align children to the start of the container

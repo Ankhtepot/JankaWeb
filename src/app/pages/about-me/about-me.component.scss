@@ -1,0 +1,47 @@
+// about-me.component.scss
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh; // Set to viewport height to not exceed the screen size
+  width: 100%;
+  background: url('../../../assets/images/paintings/2.jpg') no-repeat center center fixed;
+  background-size: cover;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.content {
+  position: relative; // Changed from absolute for better flow control
+  max-width: 800px;
+  margin: auto; // Centering in the available space
+  padding: 150px 20px 20px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.profile-section {
+  display: flex;
+  align-items: start; // Align items to the start of the flex container
+  padding: 10px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    flex-shrink: 0; // Prevent the image from shrinking
+  }
+
+  p {
+    margin-left: 20px; // Space between image and text
+    flex-grow: 1; // Allow text to take up remaining space
+  }
+}
