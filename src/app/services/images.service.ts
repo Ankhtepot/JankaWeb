@@ -7,7 +7,8 @@ export enum Category {
   PhotoTwo = "PhotoTwo",
   PhotoThree = "PhotoThree",
   PhotoFour = "PhotoFour",
-  Candles = "Candles"
+  Candles = "Candles",
+  All = "All"
 }
 
 @Injectable({
@@ -72,5 +73,14 @@ export class ImagesService {
 
   getImages(category: Category) : ImageData[] {
     return this.images[category].slice();
+  }
+
+  getRandomBackgroundImageUrl(category: Category) {
+    if (category === Category.All) {
+      const allImages = Object.values(this.images).reduce((acc, val) => acc.concat(val), []);
+      return allImages[Math.floor(Math.random() * allImages.length)].imageUrl;
+    } else {
+      return this.images[category][Math.floor(Math.random() * this.images[category].length)].imageUrl;
+    }
   }
 }

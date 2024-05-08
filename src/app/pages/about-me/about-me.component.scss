@@ -5,8 +5,10 @@
   left: 0;
   height: 100vh; // Set to viewport height to not exceed the screen size
   width: 100%;
-  background: url('../../../assets/images/paintings/2.jpg') no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
+  background-attachment: fixed;
 
   &::after {
     content: '';
@@ -29,19 +31,16 @@
 }
 
 .profile-section {
-  display: flex;
-  align-items: start; // Align items to the start of the flex container
-  padding: 10px;
-
   img {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    flex-shrink: 0; // Prevent the image from shrinking
+    float: left; // Make the image float left
+    margin-right: 20px; // Space between the image and the text
+    margin-bottom: 10px; // Space below the image
   }
 
   p {
-    margin-left: 20px; // Space between image and text
-    flex-grow: 1; // Allow text to take up remaining space
+    clear: both; // Clear the float to allow text to wrap properly
   }
 }

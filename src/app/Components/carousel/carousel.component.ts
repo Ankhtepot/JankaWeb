@@ -13,6 +13,7 @@ export class CarouselComponent implements OnInit, AfterViewInit {
   @Input() maxHeight: string;
 
   swiper: Swiper;
+  fillImageUrl: string = 'assets/images/seamless-canvas-pale-brown.jpg';
 
   constructor(private imageService: ImagesService) { }
 
