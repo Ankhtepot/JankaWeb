@@ -4,8 +4,8 @@ export class ImageData {
 
     constructor(
         public description: string,
-        public miniatureUrl: string,
         public imageUrl: string,
+        public miniatureUrl?: string,
     ) {
     }
 }

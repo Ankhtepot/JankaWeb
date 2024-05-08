@@ -1,13 +1,27 @@
 // about-me.component.scss
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Center content vertically
+  min-height: calc(100vh - 100px); // Exclude header height
+  padding-bottom: 50px; // Ensures space at the bottom
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding-top: 100px;
+  }
+}
+
 .background {
   position: fixed;
-  top: 0;
+  top: 100px; // Start below the header
   left: 0;
-  height: 100vh; // Set to viewport height to not exceed the screen size
+  height: calc(100vh - 100px); // Subtract the height of the header
   width: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
   background-attachment: fixed;
 
   &::after {
@@ -17,27 +31,48 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
   }
 }
 
 .content {
-  position: relative; // Changed from absolute for better flow control
+  position: relative;
   max-width: 800px;
-  margin: auto; // Centering in the available space
-  padding: 150px 20px 20px 20px;
+  width: 100%;
+  padding: 20px;
   background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px;
+  box-shadow: 1px -1px 40px 17px rgba(255,255,255,0.56);
+  -webkit-box-shadow: 1px -1px 24px 17px rgba(255,255,255,0.56);
+  -moz-box-shadow: 1px -1px 24px 17px rgba(255,255,255,0.56);
+}
+
+@media (max-width: 600px) {
+  .content {
+    margin-top: 30px // Smaller shift on mobile to keep more space at the bottom
+  }
 }
 
 .profile-section {
   img {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 500px;
     object-fit: cover;
     float: left; // Make the image float left
     margin-right: 20px; // Space between the image and the text
     margin-bottom: 10px; // Space below the image
+  }
+  //image centers on media width max 600px
+  @media (max-width: 600px) {
+    img {
+      width: 100%;
+      height: auto;
+      float: none; // Remove float to center the image
+      margin-right: 0; // Remove margin to center the image
+    }
   }
 
   p {

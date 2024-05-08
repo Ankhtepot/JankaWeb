@@ -5,10 +5,11 @@
   left: 0;
   z-index: 1000; // High z-index to keep it above other content
   background-color: turquoise; // White background
+  height: 100px;
 }
 
 .nav-container {
-  display: flex;       // Align children (anchor tags) in a row
+  display: flex; // Align children (anchor tags) in a row
   justify-content: flex-start; // Align children to the start of the container
   align-items: center; // Vertically center the anchor tags in the container
 }
@@ -38,5 +39,9 @@ a.active {
   &:hover {
     background-color: white; // Keep background white even on hover
   }
+}
+
+router-outlet {
+  margin-top: 100px; // Push the content below the header
 }
 

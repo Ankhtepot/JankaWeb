@@ -8,8 +8,22 @@ export enum Category {
   PhotoThree = "PhotoThree",
   PhotoFour = "PhotoFour",
   Candles = "Candles",
-  All = "All"
+  All = "All",
+  Profile = "Profile"
 }
+
+const dummyImages : ImageData[] = [
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+]
 
 @Injectable({
   providedIn: 'root'
@@ -32,42 +46,18 @@ export class ImagesService {
       new ImageData('Painting 24', 'assets/images/paintings/miniatures/24.jpg', 'assets/images/paintings/24.jpg'),
       new ImageData('Painting 26', 'assets/images/paintings/miniatures/26.jpg', 'assets/images/paintings/26.jpg'),
     ],
-    PhotoOne: [
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-    ],
-    PhotoTwo: [
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-    ],
-    PhotoThree: [
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-    ],
-    PhotoFour: [
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-    ],
-    Candles: [
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-      new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-    ]
+    PhotoOne: dummyImages,
+    PhotoTwo: dummyImages,
+    PhotoThree: dummyImages,
+    PhotoFour: dummyImages,
+    Candles: dummyImages
   };
+
+  profileImages: ImageData[] = [
+    new ImageData('Profile photo 1', 'assets/images/profile_images/dance.jpg'),
+    new ImageData('Profile photo 2', 'assets/images/profile_images/greeting.jpg'),
+    new ImageData('Profile photo 3', 'assets/images/profile_images/leaning_on_wall.jpg'),
+  ]
 
   constructor() { }
 
@@ -79,7 +69,10 @@ export class ImagesService {
     if (category === Category.All) {
       const allImages = Object.values(this.images).reduce((acc, val) => acc.concat(val), []);
       return allImages[Math.floor(Math.random() * allImages.length)].imageUrl;
-    } else {
+    } else if (category === Category.Profile) {
+      return this.profileImages[Math.floor(Math.random() * this.profileImages.length)].imageUrl;
+    }
+    else {
       return this.images[category][Math.floor(Math.random() * this.images[category].length)].imageUrl;
     }
   }
