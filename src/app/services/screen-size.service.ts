@@ -5,6 +5,7 @@ import {takeUntil, debounceTime,} from 'rxjs/operators';
 @Injectable()
 export class ScreenSizeService implements OnDestroy {
   private _unsubscriber$: Subject<any> = new Subject();
+  private _lastMediaBreakpoint: string = null;
   public screenWidth$: BehaviorSubject<number> = new BehaviorSubject(null);
   public mediaBreakpoint$: BehaviorSubject<string> = new BehaviorSubject(null);
 
@@ -35,18 +36,24 @@ export class ScreenSizeService implements OnDestroy {
   }
 
   private _setMediaBreakpoint(width: number): void {
-    if (width < 576) {
+    if (width < 576 && this._lastMediaBreakpoint !== 'xs') {
       this.mediaBreakpoint$.next('xs');
-    } else if (width >= 576 && width < 768) {
+      this._lastMediaBreakpoint = 'xs';
+    } else if (width >= 576 && width < 768 && this._lastMediaBreakpoint !== 'sm') {
       this.mediaBreakpoint$.next('sm');
-    } else if (width >= 768 && width < 992) {
+      this._lastMediaBreakpoint = 'sm';
+    } else if (width >= 768 && width < 992 && this._lastMediaBreakpoint !== 'md') {
       this.mediaBreakpoint$.next('md');
-    } else if (width >= 992 && width < 1200) {
+      this._lastMediaBreakpoint = 'md';
+    } else if (width >= 992 && width < 1200 && this._lastMediaBreakpoint !== 'lg') {
       this.mediaBreakpoint$.next('lg');
-    } else if (width >= 1200 && width < 1600) {
+      this._lastMediaBreakpoint = 'lg';
+    } else if (width >= 1200 && width < 1600 && this._lastMediaBreakpoint !== 'xl') {
       this.mediaBreakpoint$.next('xl');
-    } else {
+      this._lastMediaBreakpoint = 'xl';
+    } else if (width >= 1600 && this._lastMediaBreakpoint !== 'xxl'){
       this.mediaBreakpoint$.next('xxl');
+      this._lastMediaBreakpoint = 'xxl';
     }
   }
 

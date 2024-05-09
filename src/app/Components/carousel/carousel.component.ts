@@ -28,7 +28,7 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   resizeSubscription: Subscription;
 
   swiper: Swiper;
-  fillImageUrl: string = 'assets/images/seamless-canvas-pale-brown.jpg';
+  fillImageUrl: string = 'assets/images/seamless-cosmic-background.jpg';
 
   constructor(
     private imageService: ImagesService,
@@ -55,6 +55,7 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private setSwiper() {
+    console.log('Setting swiper');
     this.swiper = new Swiper('.swiper', {
       slidesPerView: resolveSlidesCount(this.screenService.mediaBreakpoint$.value),
       centeredSlides: true,
@@ -68,9 +69,21 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
       modules: [Navigation, Pagination, Autoplay],
     });
     this.elementRef.nativeElement.querySelector('.swiper').style.backgroundImage = `url('${this.fillImageUrl}')`
+    this.setSlideStyles();
   }
 
   getImages(): any[] {
     return this.imageService.getImages(this.category).map(image => image.miniatureUrl);
+  }
+
+  private setSlideStyles() {
+    // Set slide styles
+    const slides = this.elementRef.nativeElement.querySelectorAll('.swiper-slide');
+    slides.forEach((slide: HTMLElement) => {
+      slide.style.height = this.maxHeight;
+      slide.style.display = 'flex';
+      slide.style.justifyContent = 'center';
+      slide.style.alignItems = 'center';
+    });
   }
 }
