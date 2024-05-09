@@ -23,6 +23,7 @@ import {FormsModule} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 import { CarouselComponent } from './Components/carousel/carousel.component';
+import {ScreenSizeService} from "./services/screen-size.service";
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
     MatProgressSpinner,
   ],
   providers: [
-    provideAnimationsAsync('animations')
+    provideAnimationsAsync('animations'),
+    ScreenSizeService,
   ],
   bootstrap: [AppComponent]
 })
