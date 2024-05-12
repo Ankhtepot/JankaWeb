@@ -66,8 +66,13 @@ export class ImagesService {
 
   constructor() { }
 
-  getImages(category: Category) : ImageData[] {
+
+  getImagesData(category: Category) : ImageData[] {
     return this.images[category].slice();
+  }
+
+  getImages(category: Category, sizeVariant: ImageSize = ImageSize.Full) : string[] {
+    return this.images[category].map(image => sizeVariant === ImageSize.Full ? image.imageUrl : image.miniatureUrl);
   }
 
   getRandomImageUrl(category: Category, imageSize: ImageSize = ImageSize.Miniature) {

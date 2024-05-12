@@ -24,6 +24,9 @@ import {NgOptimizedImage} from "@angular/common";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import {ScreenSizeService} from "./services/screen-size.service";
+import {
+  WrapSwappingBackgroundComponent
+} from "./Components/wrap-swapping-background/wrap-swapping-background.component";
 
 
 @NgModule({
@@ -51,6 +54,7 @@ import {ScreenSizeService} from "./services/screen-size.service";
     MatFormFieldModule,
     NgOptimizedImage,
     MatProgressSpinner,
+    WrapSwappingBackgroundComponent,
   ],
   providers: [
     provideAnimationsAsync('animations'),

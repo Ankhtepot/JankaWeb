@@ -55,7 +55,6 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private setSwiper() {
-    console.log('Setting swiper');
     this.swiper = new Swiper('.swiper', {
       slidesPerView: resolveSlidesCount(this.screenService.mediaBreakpoint$.value),
       centeredSlides: true,
@@ -73,11 +72,10 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getImages(): any[] {
-    return this.imageService.getImages(this.category).map(image => image.miniatureUrl);
+    return this.imageService.getImagesData(this.category).map(image => image.miniatureUrl);
   }
 
   private setSlideStyles() {
-    // Set slide styles
     const slides = this.elementRef.nativeElement.querySelectorAll('.swiper-slide');
     slides.forEach((slide: HTMLElement) => {
       slide.style.height = this.maxHeight;

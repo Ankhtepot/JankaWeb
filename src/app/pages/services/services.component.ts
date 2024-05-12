@@ -31,7 +31,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   getImages(category: Category) {
-    return this.imageService.getImages(category).map(image => image.miniatureUrl);
+    return this.imageService.getImagesData(category).map(image => image.miniatureUrl);
   }
 
   protected readonly Category = Category;
