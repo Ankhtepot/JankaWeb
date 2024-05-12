@@ -1,16 +1,20 @@
 import {Injectable, OnDestroy,} from '@angular/core';
-import {Subject, BehaviorSubject, fromEvent,} from 'rxjs';
+import {Subject, BehaviorSubject, fromEvent, pairwise, map,} from 'rxjs';
 import {takeUntil, debounceTime,} from 'rxjs/operators';
 
 @Injectable()
-export class ScreenSizeService implements OnDestroy {
+export class ScreenService implements OnDestroy {
   private _unsubscriber$: Subject<any> = new Subject();
   private _lastMediaBreakpoint: string = null;
   public screenWidth$: BehaviorSubject<number> = new BehaviorSubject(null);
   public mediaBreakpoint$: BehaviorSubject<string> = new BehaviorSubject(null);
+  public scrolledUp$: BehaviorSubject<boolean> = new BehaviorSubject(null);
+  public scrolledDown$: BehaviorSubject<boolean> = new BehaviorSubject(null);
+  public scrolledToTop$: BehaviorSubject<boolean> = new BehaviorSubject(null);
 
   constructor() {
     this.init();
+    this.initScrollEvents();
   }
 
   init() {
@@ -24,6 +28,31 @@ export class ScreenSizeService implements OnDestroy {
       this._setScreenWidth(evt.target.innerWidth);
       this._setMediaBreakpoint(evt.target.innerWidth);
     });
+  }
+
+  initScrollEvents() {
+    fromEvent(window, 'scroll')
+      .pipe(
+        debounceTime(10),
+        map(() => window.scrollY),
+        pairwise(),
+        takeUntil(this._unsubscriber$)
+      )
+      .subscribe(([prev, current]) => {
+        if (current > prev && prev !== 0) {
+          this.scrolledDown$.next(true);
+          this.scrolledUp$.next(false);
+        } else if (current < prev) {
+          this.scrolledDown$.next(false);
+          this.scrolledUp$.next(true);
+        }
+
+        if (current === 0) {
+          this.scrolledToTop$.next(true);
+        } else {
+          this.scrolledToTop$.next(false);
+        }
+      });
   }
 
   ngOnDestroy() {

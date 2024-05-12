@@ -23,10 +23,11 @@ import {FormsModule} from "@angular/forms";
 import {NgOptimizedImage} from "@angular/common";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
 import { CarouselComponent } from './Components/carousel/carousel.component';
-import {ScreenSizeService} from "./services/screen-size.service";
+import {ScreenService} from "./services/screen.service";
 import {
   WrapSwappingBackgroundComponent
 } from "./Components/wrap-swapping-background/wrap-swapping-background.component";
+import { HeaderComponent } from './Components/header/header.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import {
     PageNotFoundComponent,
     ContactComponent,
     CarouselComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,7 @@ import {
   ],
   providers: [
     provideAnimationsAsync('animations'),
-    ScreenSizeService,
+    ScreenService,
   ],
   bootstrap: [AppComponent]
 })

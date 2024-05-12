@@ -1,20 +1,3 @@
-<mat-toolbar class="header">
-  <mat-toolbar-row>
-    <h1> {{ title }}</h1>
-    <span class="menu-spacer"></span>
-    <div class="nav-container">
-      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">O me </a>
-      <a mat-button [routerLink]="['/services']" routerLinkActive="active"> Sluzby </a>
-      <a mat-button [routerLink]="['/contact']" routerLinkActive="active"> Napis mi </a>
-    </div>
-  </mat-toolbar-row>
-
-  <mat-toolbar-row>
-    <span style="font-size: 12px;">Portitulok stranky, kratke predstavenie</span>
-  </mat-toolbar-row>
-</mat-toolbar>
-
-<div class="router__outlet__parent">
-  <router-outlet></router-outlet>
-</div>
+<app-header [title]="title"/>
+<router-outlet></router-outlet>
 

@@ -1,0 +1,21 @@
+<mat-toolbar
+  class="header"
+  [class.visible]="showHeader"
+  [class.hidden]="!showHeader"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
+  <mat-toolbar-row>
+    <h1>{{ title }}</h1>
+    <span class="menu-spacer"></span>
+    <div class="nav-container">
+      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">About Me</a>
+      <a mat-button [routerLink]="['/services']" routerLinkActive="active">Services</a>
+      <a mat-button [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span style="font-size: 12px;">Portitulok stranky, kratke predstavenie</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+

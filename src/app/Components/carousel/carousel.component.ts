@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit} from '@a
 import Swiper from "swiper";
 import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import {Category, ImagesService} from "../../services/images.service";
-import {ScreenSizeService} from "../../services/screen-size.service";
+import {ScreenService} from "../../services/screen.service";
 import {Subscription} from "rxjs";
 
 function resolveSlidesCount(mediaBreakpoint: string) {
@@ -32,7 +32,7 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(
     private imageService: ImagesService,
-    private screenService: ScreenSizeService,
+    private screenService: ScreenService,
     private elementRef: ElementRef,
   ) { }
 

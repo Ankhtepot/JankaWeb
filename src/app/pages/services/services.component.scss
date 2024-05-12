@@ -1,4 +1,11 @@
-@import 'swiper/swiper-bundle.css';
+:host {
+  display: block;
+  margin-top: 100px;
+}
+
+wrapper {
+    margin-top: 300px;
+}
 
 img {
     max-height: 350px;

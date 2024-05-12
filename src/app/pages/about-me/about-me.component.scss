@@ -1,49 +1,10 @@
-// about-me.component.scss
-:host {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; // Center content vertically
-  min-height: calc(100vh - 100px); // Exclude header height
-  padding-bottom: 50px; // Ensures space at the bottom
-}
-
-@media (max-width: 600px) {
-  :host {
-    padding-top: 100px;
-  }
-}
-
-.background {
-  position: fixed;
-  top: 100px; // Start below the header
-  left: 0;
-  height: calc(100vh - 100px); // Subtract the height of the header
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-  }
-}
-
 .content {
   position: relative;
   max-width: 800px;
   width: 100%;
   padding: 20px;
   background: rgba(255, 255, 255, 0.8);
-  margin-top: 200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 100px auto;
   border-radius: 20px;
   box-shadow: 1px -1px 49px 34px rgba(255,255,255,0.8);
   -webkit-box-shadow: 1px -1px 49px 34px rgba(255,255,255,0.8);
