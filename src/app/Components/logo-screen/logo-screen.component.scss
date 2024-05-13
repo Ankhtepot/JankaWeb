@@ -1,0 +1,24 @@
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100px;
+  width: 200px;
+  transition: ease-in-out 0.5s;
+  z-index: 10;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: ease-in-out 0.5s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: ease-in-out 0.5s;
+}

@@ -28,6 +28,7 @@ import {
   WrapSwappingBackgroundComponent
 } from "./Components/wrap-swapping-background/wrap-swapping-background.component";
 import { HeaderComponent } from './Components/header/header.component';
+import { LogoScreenComponent } from './Components/logo-screen/logo-screen.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { HeaderComponent } from './Components/header/header.component';
     ContactComponent,
     CarouselComponent,
     HeaderComponent,
+    LogoScreenComponent,
   ],
   imports: [
     BrowserModule,

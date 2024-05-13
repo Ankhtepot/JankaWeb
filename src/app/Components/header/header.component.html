@@ -1,21 +1,33 @@
+<app-logo-screen *ngIf="mediaBreakpoint !== 'xs'"/>
 <mat-toolbar
   class="header"
   [class.visible]="showHeader"
   [class.hidden]="!showHeader"
   (mouseenter)="onMouseEnter()"
   (mouseleave)="onMouseLeave()"
+  style="background-image: url('assets/images/background_header.jpg'); background-size: cover;"
 >
-  <mat-toolbar-row>
-    <h1>{{ title }}</h1>
+  <mat-toolbar-row style="height: 110px">
+    <img
+      src="assets/images/logo_cb.png"
+      alt="Placeholder"
+      class="logo"
+      *ngIf="mediaBreakpoint !== 'xs'"
+    >
+    <span class="title" *ngIf="mediaBreakpoint === 'xs'">{{ title }}  </span>
     <span class="menu-spacer"></span>
-    <div class="nav-container">
-      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">About Me</a>
-      <a mat-button [routerLink]="['/services']" routerLinkActive="active">Services</a>
-      <a mat-button [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+    <div class="nav-container" *ngIf="mediaBreakpoint !== 'xs'">
+      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">O me</a>
+      <a mat-button [routerLink]="['/services']" routerLinkActive="active">Sluzby</a>
+      <a mat-button [routerLink]="['/contact']" routerLinkActive="active">Kontakt</a>
     </div>
   </mat-toolbar-row>
   <mat-toolbar-row>
-    <span style="font-size: 12px;">Portitulok stranky, kratke predstavenie</span>
+    <span class="title" *ngIf="mediaBreakpoint !== 'xs'">{{ title }}</span>
+    <div class="nav-container" *ngIf="mediaBreakpoint === 'xs'">
+      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">O me</a>
+      <a mat-button [routerLink]="['/services']" routerLinkActive="active">Sluzby</a>
+      <a mat-button [routerLink]="['/contact']" routerLinkActive="active">Kontakt</a>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
-

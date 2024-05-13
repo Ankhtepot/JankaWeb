@@ -11,6 +11,7 @@ export class ScreenService implements OnDestroy {
   public scrolledUp$: BehaviorSubject<boolean> = new BehaviorSubject(null);
   public scrolledDown$: BehaviorSubject<boolean> = new BehaviorSubject(null);
   public scrolledToTop$: BehaviorSubject<boolean> = new BehaviorSubject(null);
+  public headerVisibilityChanged$: Subject<boolean> = new Subject();
 
   constructor() {
     this.init();

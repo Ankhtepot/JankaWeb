@@ -5,13 +5,27 @@
   left: 0;
   z-index: 1000; // High z-index to keep it above other content
   background-color: turquoise; // White background
-  height: 100px;
-  font-family: "Dancing Script", sans-serif;
+  height: 200px;
+  font-family: "Pacifico", cursive;
 
   h1 {
     color: black; // White text color
     margin-left: 1rem;
     font-family: inherit;
+  }
+
+  .title {
+    color: white; // White text color
+    margin-left: 3.5rem;
+    font-family: inherit;
+    font-size: 30px;
+  }
+
+  .logo {
+    width: 200px;
+    height: 100px;
+    //margin-top: 1rem;
+    margin-left: 1rem;
   }
 
   .nav-container {
@@ -25,7 +39,7 @@
   a {
     color: black; // Text color for inactive links
     text-decoration: none; // No underline
-    font-family: inherit;
+    font-family: Roboto, sans-serif;
     font-weight: bold;
     padding: 10px 15px; // Padding for better click area
     display: flex; // inline-block Necessary for padding to take effect
@@ -34,6 +48,7 @@
     border-radius: 20px; // Rounded edges for the oval shape
     transition: background-color 0.3s; // Smooth transition for background color
     margin-left: 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
 
     &:hover {
       background-color: lighten(turquoise, 35%); // Lighter background on hover
@@ -42,7 +57,7 @@
   }
 
   a.active {
-    color: turquoise; // Primary color text
+    color: deepskyblue; // Primary color text
     background-color: white; // White background
     font-weight: bold; // Make the active link bold
 
