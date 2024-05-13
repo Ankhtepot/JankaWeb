@@ -5,7 +5,7 @@ import {Category, ImagesService} from "../../services/images.service";
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
-  styleUrl: './services.component.scss'
+  styleUrl: './services.component.scss',
 })
 export class ServicesComponent implements OnInit, AfterViewInit {
   swiper: Swiper;
