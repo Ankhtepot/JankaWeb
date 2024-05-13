@@ -9,6 +9,9 @@ import {ScreenService} from "../../services/screen.service";
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Input() title: string;
+  aboutMe = 'O me';
+  services = 'Sluzby';
+  contact = 'Kontakt';
   private subscriptions: Subscription = new Subscription();
   public showHeader = true;
   public mediaBreakpoint: string;
