@@ -1,4 +1,5 @@
 <app-logo-screen *ngIf="mediaBreakpoint !== 'xs'"/>
+<div class="show_trigger" (mouseenter)="onShowHeader()"></div>
 <mat-toolbar
   class="header"
   [class.visible]="showHeader"
