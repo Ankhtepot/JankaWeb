@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../../../node_modules/@angular/material/index" as mat;
+//@use "./tab_theme" as tab;
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -8,7 +9,7 @@ $janka-web-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
 $janka-web-accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$janka-web-warn: mat.m2-define-palette(mat.$red-palette);
+$janka-web-warn: mat.m2-define-palette(mat.$m2-red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
