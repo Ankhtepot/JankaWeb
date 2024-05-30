@@ -12,12 +12,21 @@ img {
   vertical-align: bottom;
 }
 
-//.custom-header {
-//  background-color: rgba(255, 255, 255, 0.8);
-//  color: black;
-//
-//  .mat-card-title,
-//  .mat-card-subtitle {
-//    color: black;
-//  }
-//}
+.custom-tabs {
+  --mat-tab-header-active-label-text-color: black;
+  --mat-tab-header-active-focus-label-text-color: black;
+  --mat-tab-header-label-text-weight: 700;
+
+  ::ng-deep .mat-mdc-tab {
+    background: rgba(255, 255, 255, 0.6);
+
+  }
+
+  ::ng-deep .mat-mdc-tab-header {
+    --mat-tab-header-label-text-weight: 700;
+  }
+
+  ::ng-deep .mat-mdc-card {
+    background: rgba(255, 255, 255, 0.6);
+  }
+}
