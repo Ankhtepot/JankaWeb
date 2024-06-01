@@ -29,6 +29,7 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
 
   swiper: Swiper;
   fillImageUrl: string = 'assets/images/seamless-cosmic-background.jpg';
+  images: string[];
 
   constructor(
     private imageService: ImagesService,
@@ -42,7 +43,6 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
         this.swiper.destroy();
       }
       this.setSwiper();
-      // this.swiper.update();
     });
   }
 
@@ -55,6 +55,7 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private setSwiper() {
+    this.images = this.getImages();
     this.swiper = new Swiper('.swiper', {
       slidesPerView: resolveSlidesCount(this.screenService.mediaBreakpoint$.value),
       centeredSlides: true,
@@ -83,5 +84,14 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
       slide.style.justifyContent = 'center';
       slide.style.alignItems = 'center';
     });
+  }
+
+  public reinitializeSwiper() {
+    if (this.swiper) {
+      this.images = this.getImages();
+      this.swiper.update();
+    } else {
+      this.setSwiper();
+    }
   }
 }

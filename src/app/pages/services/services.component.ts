@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import Swiper from "swiper";
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Category, ImagesService} from "../../services/images.service";
 import {T, TextService} from "../../services/text.service";
+import {CarouselComponent} from "../../Components/carousel/carousel.component";
+import {MatTabGroup} from "@angular/material/tabs";
 
 @Component({
   selector: 'app-services',
@@ -9,7 +10,10 @@ import {T, TextService} from "../../services/text.service";
   styleUrl: './services.component.scss',
 })
 export class ServicesComponent implements OnInit, AfterViewInit {
-  swiper: Swiper;
+  @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup;
+  @ViewChild('paintingsCarousel') paintingsCarousel: CarouselComponent;
+  @ViewChild('photographyCarousel') photographyCarousel: CarouselComponent;
+  @ViewChild('candlesCarousel') candlesCarousel: CarouselComponent;
 
   constructor(
     private imageService: ImagesService,
@@ -22,20 +26,21 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.swiper = new Swiper('.swiper-container', {
-      slidesPerView: 5,
-      centeredSlides: true,
-      spaceBetween: 30,
-      loop: true,
-      autoplay: {
-        delay: 500,
-        disableOnInteraction: false,
-      },
+    this.tabGroup.selectedIndexChange.subscribe((index: number) => {
+      this.handleTabChange(index);
     });
   }
 
-  getImages(category: Category) {
-    return this.imageService.getImagesData(category).map(image => image.miniatureUrl);
+  handleTabChange(index: number) {
+    setTimeout(() => {
+      if (index === 0 && this.paintingsCarousel) {
+        this.paintingsCarousel.reinitializeSwiper();
+      } else if (index === 1 && this.photographyCarousel) {
+        this.photographyCarousel.reinitializeSwiper();
+      } else if (index === 2 && this.candlesCarousel) {
+        this.candlesCarousel.reinitializeSwiper();
+      }
+    }, 50);
   }
 
   protected readonly Category = Category;

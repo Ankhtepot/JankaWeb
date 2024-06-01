@@ -2,7 +2,7 @@
   <div class="swiper-wrapper">
     <div
       class="swiper-slide"
-      *ngFor="let img of getImages()"
+      *ngFor="let img of images"
       [ngStyle]="{'height': maxHeight, 'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}"
     >
       <img [src]="img" alt="Custom Paintings">
