@@ -5,13 +5,23 @@
   margin-top: 210px;
 }
 
-wrapper {
-  margin-top: 300px;
-}
-
 img {
   max-height: 350px;
   vertical-align: bottom;
+}
+
+.content {
+  overflow: hidden;
+}
+
+mat-card-content {
+  overflow: hidden;
+}
+
+mat-card-footer {
+  p {
+    text-align: center;
+  }
 }
 
 .custom-tabs {

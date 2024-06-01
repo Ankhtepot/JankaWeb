@@ -18,16 +18,17 @@ export enum ImageSize {
 }
 
 const dummyImages : ImageData[] = [
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
-  new ImageData("placeholder","https://via.placeholder.com/500", "https://via.placeholder.com/1024"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
+  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
 ]
 
 @Injectable({

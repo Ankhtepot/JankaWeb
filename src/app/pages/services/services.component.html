@@ -1,40 +1,48 @@
-<div class="wrapper">
+<div>
   <h2>{{ T.services_header }}</h2>
-  <mat-tab-group animationDuration="500ms" class="custom-tabs">
+  <mat-tab-group #tabGroup animationDuration="500ms" class="custom-tabs">
+    <!-- Paintings -->
     <mat-tab [label]="getText(T.paintings_header)">
       <mat-card>
         <mat-card-header>
           <mat-card-title>{{ T.paintings_subtitle | text }}</mat-card-title>
         </mat-card-header>
-        <mat-card-content style="overflow: hidden">
-            <app-carousel [category]="Category.Paintings" [maxHeight]="'500px'"></app-carousel>
+        <mat-card-content>
+            <app-carousel #paintingsCarousel [category]="Category.Paintings" [maxHeight]="'500px'"></app-carousel>
         </mat-card-content>
         <mat-card-footer>
-          <p style="text-align: center">{{ T.paintings_subtitle | text }}</p>
+          <p>{{ T.paintings_subtitle | text }}</p>
         </mat-card-footer>
       </mat-card>
     </mat-tab>
+    <!-- Photography -->
     <mat-tab [label]="getText(T.photography_header)">
       <mat-card>
         <mat-card-header>
           <mat-card-title>{{ T.photography_subtitle }}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="https://via.placeholder.com/500?text=Photography+Sessions" alt="Photography Sessions">
         <mat-card-content>
-          <p>{{ T.photography_footer_message }}</p>
+          <app-carousel #photographyCarousel [category]="Category.Paintings" [maxHeight]="'500px'"></app-carousel>
         </mat-card-content>
+        <mat-card-footer>
+          <p>{{ T.photography_footer_message | text }}</p>
+        </mat-card-footer>
       </mat-card>
     </mat-tab>
+    <!-- Candles -->
     <mat-tab [label]="getText(T.candles_header)">
       <mat-card>
         <mat-card-header>
           <mat-card-title>{{ T.candles_subtitle }}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="https://via.placeholder.com/500?text=Handcrafted+Candles" alt="Handcrafted Candles">
         <mat-card-content>
-          <p>{{ T.candles_footer_message }}</p>
+          <app-carousel #candlesCarousel [category]="Category.Candles" [maxHeight]="'500px'"></app-carousel>
         </mat-card-content>
+        <mat-card-footer>
+          <p>{{ T.candles_footer_message | text }}</p>
+        </mat-card-footer>
       </mat-card>
     </mat-tab>
+
   </mat-tab-group>
 </div>
