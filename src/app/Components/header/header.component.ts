@@ -1,6 +1,9 @@
 import {Component, HostListener, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ScreenService} from "../../services/screen.service";
+import {T} from "../../services/text.service";
+
+const showTime = 2000;
 
 @Component({
   selector: 'app-header',
@@ -22,6 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.listenToScrollEvents();
+    this.onShowHeader();
   }
 
   private listenToScrollEvents() {
@@ -86,6 +90,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.hideHeaderTimer = setTimeout(() => {
       this.showHeader = false;
       this.screenService.headerVisibilityChanged$.next(this.showHeader);
-    }, 3000);
+    }, showTime);
   }
+
+  protected readonly T = T;
 }

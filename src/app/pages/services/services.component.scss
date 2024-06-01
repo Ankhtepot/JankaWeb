@@ -1,3 +1,5 @@
+@import "../../../styles/colors";
+
 :host {
   display: block;
   margin-top: 210px;
@@ -13,8 +15,8 @@ img {
 }
 
 .custom-tabs {
-  --mat-tab-header-active-label-text-color: black;
-  --mat-tab-header-active-focus-label-text-color: black;
+  --mat-tab-header-active-label-text-color: #{$dodger-blue};
+  --mat-tab-header-active-focus-label-text-color: #{$dodger-blue};
   --mat-tab-header-label-text-weight: 700;
 
   ::ng-deep .mat-mdc-tab {
@@ -29,4 +31,16 @@ img {
   ::ng-deep .mat-mdc-card {
     background: rgba(255, 255, 255, 0.6);
   }
+}
+
+$background-color: 255;
+h2 {
+  box-sizing: border-box;
+  font-family: "Pacifico", cursive;
+  color: dodgerblue;
+  background: rgba($background-color, $background-color, $background-color, 0.7);
+  border-radius: 25px;
+  padding: 10px;
+  margin: 0.5em 2em;
+  text-align: center;
 }

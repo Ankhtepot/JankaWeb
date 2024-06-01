@@ -29,6 +29,7 @@ import {
 } from "./Components/wrap-swapping-background/wrap-swapping-background.component";
 import { HeaderComponent } from './Components/header/header.component';
 import { LogoScreenComponent } from './Components/logo-screen/logo-screen.component';
+import { TextPipe } from './pipes/text.pipe';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { LogoScreenComponent } from './Components/logo-screen/logo-screen.compon
     CarouselComponent,
     HeaderComponent,
     LogoScreenComponent,
+    TextPipe,
   ],
   imports: [
     BrowserModule,

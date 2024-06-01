@@ -37,28 +37,30 @@
   }
 
   a {
-    color: black; // Text color for inactive links
+    color: blue; // Text color for inactive links
     text-decoration: none; // No underline
-    font-family: Roboto, sans-serif;
+    font-family: "Pacifico", cursive;
     font-weight: bold;
-    padding: 10px 15px; // Padding for better click area
+    font-size: 30px;
+    padding: 1.2em 30px; // Padding for better click area
     display: flex; // inline-block Necessary for padding to take effect
     justify-content: center;
     align-items: center;
-    border-radius: 20px; // Rounded edges for the oval shape
+    border-radius: 1.2em; // Rounded edges for the oval shape
     transition: background-color 0.3s; // Smooth transition for background color
     margin-left: 1rem;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
 
     &:hover {
-      background-color: lighten(turquoise, 35%); // Lighter background on hover
-      color: darken(turquoise, 10%); // Darker text on hover
+      background-color: lighten(dodgerblue, 35%); // Lighter background on hover
+      color: darken(dodgerblue, 10%); // Darker text on hover
     }
   }
 
+  $background-color: 255;
   a.active {
-    color: deepskyblue; // Primary color text
-    background-color: white; // White background
+    color: dodgerblue; // Primary color text
+    background-color: rgba($background-color, $background-color, $background-color, 0.6);
     font-weight: bold; // Make the active link bold
 
     &:hover {
