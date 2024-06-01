@@ -1,38 +1,38 @@
 <div class="wrapper">
-  <h2>Our Services</h2>
+  <h2>{{ T.services_header }}</h2>
   <mat-tab-group animationDuration="500ms" class="custom-tabs">
-    <mat-tab label="Paintings">
+    <mat-tab [label]="getText(T.paintings_header)">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Custom Paintings</mat-card-title>
+          <mat-card-title>{{ T.paintings_subtitle | text }}</mat-card-title>
         </mat-card-header>
         <mat-card-content style="overflow: hidden">
             <app-carousel [category]="Category.Paintings" [maxHeight]="'500px'"></app-carousel>
         </mat-card-content>
         <mat-card-footer>
-          <p style="text-align: center">Get personalized artwork that speaks to your soul.</p>
+          <p style="text-align: center">{{ T.paintings_subtitle | text }}</p>
         </mat-card-footer>
       </mat-card>
     </mat-tab>
-    <mat-tab label="Photography">
+    <mat-tab [label]="getText(T.photography_header)">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Photography Sessions</mat-card-title>
+          <mat-card-title>{{ T.photography_subtitle }}</mat-card-title>
         </mat-card-header>
         <img mat-card-image src="https://via.placeholder.com/500?text=Photography+Sessions" alt="Photography Sessions">
         <mat-card-content>
-          <p>Capture your most memorable moments with our professional photography service.</p>
+          <p>{{ T.photography_footer_message }}</p>
         </mat-card-content>
       </mat-card>
     </mat-tab>
-    <mat-tab label="Candles">
+    <mat-tab [label]="getText(T.candles_header)">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Handcrafted Candles</mat-card-title>
+          <mat-card-title>{{ T.candles_subtitle }}</mat-card-title>
         </mat-card-header>
         <img mat-card-image src="https://via.placeholder.com/500?text=Handcrafted+Candles" alt="Handcrafted Candles">
         <mat-card-content>
-          <p>Enhance your home with our beautifully scented, handcrafted candles.</p>
+          <p>{{ T.candles_footer_message }}</p>
         </mat-card-content>
       </mat-card>
     </mat-tab>

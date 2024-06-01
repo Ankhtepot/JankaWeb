@@ -18,17 +18,9 @@
     <span class="title" *ngIf="mediaBreakpoint === 'xs'">{{ title }}  </span>
     <span class="menu-spacer"></span>
     <div class="nav-container" *ngIf="mediaBreakpoint !== 'xs'">
-      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">{{  T.aboutMe | text }}</a>
-      <a mat-button [routerLink]="['/services']" routerLinkActive="active">{{ T.services | text }}</a>
-      <a mat-button [routerLink]="['/contact']" routerLinkActive="active">{{ T.contact | text }}</a>
+      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">{{  T.aboutMe_anchor | text }}</a>
+      <a mat-button [routerLink]="['/services']" routerLinkActive="active">{{ T.services_anchor | text }}</a>
+      <a mat-button [routerLink]="['/contact']" routerLinkActive="active">{{ T.contact_anchor | text }}</a>
     </div>
   </mat-toolbar-row>
-<!--  <mat-toolbar-row>-->
-<!--    <span class="title" *ngIf="mediaBreakpoint !== 'xs'">{{ title }}</span>-->
-<!--    <div class="nav-container" *ngIf="mediaBreakpoint === 'xs'">-->
-<!--      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">{{  aboutMe }}</a>-->
-<!--      <a mat-button [routerLink]="['/services']" routerLinkActive="active">{{ services }}</a>-->
-<!--      <a mat-button [routerLink]="['/contact']" routerLinkActive="active">{{ contact }}</a>-->
-<!--    </div>-->
-<!--  </mat-toolbar-row>-->
 </mat-toolbar>

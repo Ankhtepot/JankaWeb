@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import Swiper from "swiper";
 import {Category, ImagesService} from "../../services/images.service";
+import {T, TextService} from "../../services/text.service";
 
 @Component({
   selector: 'app-services',
@@ -10,7 +11,10 @@ import {Category, ImagesService} from "../../services/images.service";
 export class ServicesComponent implements OnInit, AfterViewInit {
   swiper: Swiper;
 
-  constructor(private imageService: ImagesService) {
+  constructor(
+    private imageService: ImagesService,
+    private textService: TextService
+  ) {
   }
 
   ngOnInit(): void {
@@ -36,4 +40,9 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
   protected readonly Category = Category;
 
+  protected readonly T = T;
+
+  getText(text_enum: T) {
+    return this.textService.get(text_enum);
+  }
 }
