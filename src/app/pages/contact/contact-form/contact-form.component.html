@@ -1,0 +1,65 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+  <div>
+    <mat-form-field [style.width.vw]="50">
+      <mat-label>{{ T.input_name | text }}</mat-label>
+      <input
+        matInput name="meno"
+        [(ngModel)]="contact.meno"
+        #meno="ngModel"
+        required
+        minlength="3"
+      >
+      <mat-error *ngIf="meno.errors?.required && meno.touched">
+        {{ T.input_name_required | text }}
+      </mat-error>
+      <mat-error *ngIf="meno.errors?.minlength && meno.touched">
+        {{ T.input_name_length | text }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field [style.width.vw]="50">
+      <mat-label>{{ T.input_email | text }}</mat-label>
+      <input
+        matInput type="email"
+        name="email"
+        [(ngModel)]="contact.email"
+        #email="ngModel"
+        required
+        email>
+      <mat-error *ngIf="email.errors?.required && email.touched">
+        {{ T.input_email_required | text }}
+      </mat-error>
+      <mat-error *ngIf="email.errors?.email && email.touched">
+        {{ T.input_email_invalid | text }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field [style.width.vw]="90">
+    <mat-label>{{ T.input_message | text }}</mat-label>
+    <textarea
+      matInput
+      name="zprava"
+      [(ngModel)]="contact.zprava"
+      #zprava="ngModel"
+      required></textarea>
+    <mat-error *ngIf="zprava.errors?.required && zprava.touched">
+      {{ T.input_email_required | text }}
+    </mat-error>
+  </mat-form-field>
+
+  <div>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!contactForm.valid"
+      class="full-width"
+    >
+      {{ T.button_send | text }}
+    </button>
+  </div>
+</form>
+

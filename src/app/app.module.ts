@@ -30,6 +30,7 @@ import {
 import { HeaderComponent } from './Components/header/header.component';
 import { LogoScreenComponent } from './Components/logo-screen/logo-screen.component';
 import { TextPipe } from './pipes/text.pipe';
+import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { TextPipe } from './pipes/text.pipe';
     HeaderComponent,
     LogoScreenComponent,
     TextPipe,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,

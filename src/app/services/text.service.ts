@@ -53,5 +53,14 @@ export enum T {
   p404_Title = '>Placeholder for 404 title<',
   p404_Message = '>Placeholder for 404 message<',
   go_home = '>Placeholder for go home<',
+  input_name = 'Meno',
+  input_name_required = 'Pole \'Meno\' je povinné.',
+  input_name_length = '\'Meno\' musí mať minimálne 3 znaky.',
+  input_email = 'Email',
+  input_email_required = 'Pole \'Email\' je povinné.',
+  input_email_invalid = 'Zadajte platný email.',
+  input_message = 'Zpráva',
+  input_message_required = 'Pole \'Zpráva\' je povinné.',
+  button_send = 'Odoslať',
 }
 
