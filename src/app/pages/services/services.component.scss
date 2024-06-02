@@ -1,5 +1,7 @@
 @import "../../../styles/colors";
 
+$tabs_background_color: rgba(255, 255, 255, 0.6);
+
 :host {
   display: block;
   margin-top: 210px;
@@ -19,8 +21,17 @@ mat-card-content {
 }
 
 mat-card-footer {
+  margin: 0;
+  padding: 0;
+
   p {
+    font-size: 24px;
+    display: flex;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 3em;
+    background-color: $tabs_background_color;
   }
 }
 
@@ -30,8 +41,7 @@ mat-card-footer {
   --mat-tab-header-label-text-weight: 700;
 
   ::ng-deep .mat-mdc-tab {
-    background: rgba(255, 255, 255, 0.6);
-
+    background: #{$tabs-background-color};
   }
 
   ::ng-deep .mat-mdc-tab-header {
@@ -39,12 +49,12 @@ mat-card-footer {
   }
 
   ::ng-deep .mat-mdc-card {
-    background: rgba(255, 255, 255, 0.6);
+    background: #{$tabs_background_color};
   }
 }
 
-$background-color: 255;
 h2 {
+  $background-color: 255;
   box-sizing: border-box;
   font-family: "Pacifico", cursive;
   color: dodgerblue;
@@ -53,4 +63,10 @@ h2 {
   padding: 10px;
   margin: 0.5em 2em;
   text-align: center;
+}
+
+.bottom {
+  box-sizing: border-box;
+  height: 5em;
+  background-color: transparent;
 }

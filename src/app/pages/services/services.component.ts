@@ -10,10 +10,11 @@ import {MatTabGroup} from "@angular/material/tabs";
   styleUrl: './services.component.scss',
 })
 export class ServicesComponent implements OnInit, AfterViewInit {
-  @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup;
-  @ViewChild('paintingsCarousel') paintingsCarousel: CarouselComponent;
-  @ViewChild('photographyCarousel') photographyCarousel: CarouselComponent;
-  @ViewChild('candlesCarousel') candlesCarousel: CarouselComponent;
+  @ViewChild('tabGroup', {static: true}) tabGroup: MatTabGroup;
+  @ViewChild('carousel') carousel: CarouselComponent;
+  protected readonly Category = Category;
+  protected readonly T = T;
+  footerText: string;
 
   constructor(
     private imageService: ImagesService,
@@ -22,7 +23,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-
+    this.footerText = this.getText(T.paintings_footer_message);
   }
 
   ngAfterViewInit(): void {
@@ -32,20 +33,23 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   handleTabChange(index: number) {
-    setTimeout(() => {
-      if (index === 0 && this.paintingsCarousel) {
-        this.paintingsCarousel.reinitializeSwiper();
-      } else if (index === 1 && this.photographyCarousel) {
-        this.photographyCarousel.reinitializeSwiper();
-      } else if (index === 2 && this.candlesCarousel) {
-        this.candlesCarousel.reinitializeSwiper();
+      let category: Category;
+
+      if (index === 0) {
+        category = Category.Paintings;
+        this.footerText = this.getText(T.paintings_footer_message);
+      } else if (index === 1) {
+        category = Category.PhotoOne;
+        this.footerText = this.getText(T.photography_footer_message);
+      } else if (index === 2) {
+        category = Category.Candles;
+        this.footerText = this.getText(T.candles_footer_message);
       }
-    }, 50);
+
+    if (this.carousel) {
+      this.carousel.reinitializeSwiper(category);
+    }
   }
-
-  protected readonly Category = Category;
-
-  protected readonly T = T;
 
   getText(text_enum: T) {
     return this.textService.get(text_enum);

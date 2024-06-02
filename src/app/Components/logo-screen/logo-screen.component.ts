@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ScreenService} from "../../services/screen.service";
 import {Subscription} from "rxjs";
 
@@ -7,7 +7,7 @@ import {Subscription} from "rxjs";
   templateUrl: './logo-screen.component.html',
   styleUrl: './logo-screen.component.scss'
 })
-export class LogoScreenComponent implements OnInit, OnDestroy {
+export class LogoScreenComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('logo') logo: ElementRef;
   headerVisibilitySubscription: Subscription;
 
@@ -16,6 +16,10 @@ export class LogoScreenComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.headerVisibilitySubscription = this.screenService.headerVisibilityChanged$.subscribe(this.handleVisibility.bind(this));
+  }
+
+  ngAfterViewInit(): void {
+    this.handleVisibility(true);
   }
 
   ngOnDestroy(): void {

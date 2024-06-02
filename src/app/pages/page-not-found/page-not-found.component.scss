@@ -1,0 +1,43 @@
+@import "../../../styles/colors";
+
+.page-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: black;
+
+  mat-card {
+    $opacity: 0.8;
+    padding: 2em;
+    font-family: 'Pacifico', cursive;
+    border-radius: 250px;
+    background: linear-gradient(45deg,
+      rgba(255, 0, 0, $opacity),
+      rgba(255, 127, 0, $opacity),
+      rgba(255, 255, 0, $opacity),
+      rgba(0, 255, 0, $opacity),
+      rgba(0, 0, 255, $opacity),
+      rgba(75, 0, 130, $opacity),
+      rgba(148, 0, 211, $opacity));
+    box-shadow: 1px -1px 49px 34px rgba(255,255,255,0.8);
+    -webkit-box-shadow: 1px -1px 49px 34px rgba(255,255,255,0.8);
+    -moz-box-shadow: 1px -1px 49px 34px rgba(255,255,255,0.8);
+
+    h1 {
+      font-size: 6em;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin: 0.5em 0;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 1.5em;
+    }
+  }
+}

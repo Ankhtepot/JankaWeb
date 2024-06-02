@@ -35,22 +35,30 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
     private imageService: ImagesService,
     private screenService: ScreenService,
     private elementRef: ElementRef,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.resizeSubscription = this.screenService.mediaBreakpoint$.subscribe(() => {
-      if (this.swiper) {
-        this.swiper.destroy();
-      }
-      this.setSwiper();
+      this.initializeSwiper()
     });
   }
 
   ngOnDestroy(): void {
     this.resizeSubscription.unsubscribe();
+    if (this.swiper) {
+      this.swiper.destroy(true, true);
+    }
   }
 
   ngAfterViewInit(): void {
+    this.setSwiper();
+  }
+
+  initializeSwiper() {
+    if (this.swiper) {
+      this.swiper.destroy(true, true);
+    }
     this.setSwiper();
   }
 
@@ -86,12 +94,30 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  public reinitializeSwiper() {
+  public reinitializeSwiper(category: Category) {
+    this.category = category;
+    this.images = this.getImages();
+
     if (this.swiper) {
-      this.images = this.getImages();
-      this.swiper.update();
-    } else {
+      this.swiper.destroy(true, true);
+    }
+    this.removeSwiperElements();
+    setTimeout(() => {
       this.setSwiper();
+    });
+  }
+
+  private removeSwiperElements() {
+    const swiperContainer = this.elementRef.nativeElement.querySelector('.swiper');
+    if (swiperContainer) {
+      swiperContainer.innerHTML = `
+        <div class="swiper-wrapper">
+          ${this.images.map(image => `
+            <div class="swiper-slide">
+              <img src="${image}" alt="Image" style="max-height: ${this.maxHeight};"/>
+            </div>`).join('')}
+        </div>
+`;
     }
   }
 }

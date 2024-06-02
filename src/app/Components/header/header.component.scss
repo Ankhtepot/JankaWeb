@@ -1,3 +1,5 @@
+@import "../../../styles/colors";
+
 .header {
   width: 100%;
   position: fixed; // or 'absolute' depending on your layout needs
@@ -5,18 +7,19 @@
   left: 0;
   z-index: 1000; // High z-index to keep it above other content
   background-color: turquoise; // White background
-  height: 200px;
+  height: 110px;
   font-family: "Pacifico", cursive;
 
   h1 {
-    color: black; // White text color
+    color: black;
     margin-left: 1rem;
     font-family: inherit;
   }
 
   .title {
-    color: white; // White text color
-    margin-left: 3.5rem;
+    color: coral;
+    margin-left: 3.5em;
+    margin-right: 2em;
     font-family: inherit;
     font-size: 30px;
   }
@@ -24,8 +27,7 @@
   .logo {
     width: 200px;
     height: 100px;
-    //margin-top: 1rem;
-    margin-left: 1rem;
+    margin-left: 1em;
   }
 
   .nav-container {
@@ -41,7 +43,7 @@
     text-decoration: none; // No underline
     font-family: "Pacifico", cursive;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 26px;
     padding: 1.2em 30px; // Padding for better click area
     display: flex; // inline-block Necessary for padding to take effect
     justify-content: center;
@@ -57,7 +59,27 @@
     }
   }
 
+  @media (max-width: 500px) {
+    .title {
+      margin-left: 1em;
+      margin-right: 1em;
+      font-size: 20px;
+    }
+
+    a {
+      font-size: 20px;
+      padding: 1em 15px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 50px;
+      margin-left: 0.5em;
+    }
+  }
+
   $background-color: 255;
+
   a.active {
     color: dodgerblue; // Primary color text
     background-color: rgba($background-color, $background-color, $background-color, 0.6);
@@ -71,12 +93,12 @@
 }
 
 .header.hidden {
-  transform: translateY(-100%);  // Slide the header out of view
+  transform: translateY(-100%); // Slide the header out of view
   transition: transform 0.3s ease-in-out;
 }
 
 .header.visible {
-  transform: translateY(0);  // Slide the header into view
+  transform: translateY(0); // Slide the header into view
   transition: transform 0.3s ease-in-out;
 }
 

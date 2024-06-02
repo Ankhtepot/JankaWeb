@@ -1,3 +1,8 @@
+//:host {
+//  display: block;
+//  margin-top: 210px;
+//}
+
 .content {
   position: relative;
   max-width: 800px;
@@ -12,9 +17,9 @@
   z-index: 20;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   .content {
-    margin-top: 30px // Smaller shift on mobile to keep more space at the bottom
+    margin-top: 120px // Smaller shift on mobile to keep more space at the bottom
   }
 }
 

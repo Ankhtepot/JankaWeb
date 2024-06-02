@@ -1,11 +1,19 @@
-<app-logo-screen *ngIf="mediaBreakpoint !== 'xs'"/>
-<div class="show_trigger" (mouseenter)="onShowHeader()"></div>
+<!--<app-logo-screen *ngIf="mediaBreakpoint !== 'xs'"/>-->
+<app-logo-screen/>
+<div
+  class="show_trigger"
+  (mouseenter)="onShowHeader()"
+  (pointerenter)="onShowHeader()"
+  (touchstart)="onShowHeader()"
+></div>
 <mat-toolbar
   class="header"
   [class.visible]="showHeader"
   [class.hidden]="!showHeader"
   (mouseenter)="onMouseEnter()"
   (mouseleave)="onMouseLeave()"
+  (pointerenter)="onMouseEnter()"
+  (pointerleave)="onMouseLeave()"
   style="background-image: url('assets/images/background_header.jpg'); background-size: cover;"
 >
   <mat-toolbar-row style="height: 110px">
@@ -15,9 +23,11 @@
       class="logo"
       *ngIf="mediaBreakpoint !== 'xs'"
     >
-    <span class="title" *ngIf="mediaBreakpoint === 'xs'">{{ title }}  </span>
+<!--    <span class="title" *ngIf="mediaBreakpoint === 'xs'">{{ title }}  </span>-->
+<!--    <span class="title">{{ title }}</span>-->
     <span class="menu-spacer"></span>
-    <div class="nav-container" *ngIf="mediaBreakpoint !== 'xs'">
+<!--    <div class="nav-container" *ngIf="mediaBreakpoint !== 'xs'">-->
+    <div class="nav-container">
       <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">{{  T.aboutMe_anchor | text }}</a>
       <a mat-button [routerLink]="['/services']" routerLinkActive="active">{{ T.services_anchor | text }}</a>
       <a mat-button [routerLink]="['/contact']" routerLinkActive="active">{{ T.contact_anchor | text }}</a>

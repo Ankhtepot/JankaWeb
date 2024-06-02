@@ -7,12 +7,6 @@
         <mat-card-header>
           <mat-card-title>{{ T.paintings_subtitle | text }}</mat-card-title>
         </mat-card-header>
-        <mat-card-content>
-            <app-carousel #paintingsCarousel [category]="Category.Paintings" [maxHeight]="'500px'"></app-carousel>
-        </mat-card-content>
-        <mat-card-footer>
-          <p>{{ T.paintings_subtitle | text }}</p>
-        </mat-card-footer>
       </mat-card>
     </mat-tab>
     <!-- Photography -->
@@ -21,12 +15,6 @@
         <mat-card-header>
           <mat-card-title>{{ T.photography_subtitle }}</mat-card-title>
         </mat-card-header>
-        <mat-card-content>
-          <app-carousel #photographyCarousel [category]="Category.Paintings" [maxHeight]="'500px'"></app-carousel>
-        </mat-card-content>
-        <mat-card-footer>
-          <p>{{ T.photography_footer_message | text }}</p>
-        </mat-card-footer>
       </mat-card>
     </mat-tab>
     <!-- Candles -->
@@ -35,14 +23,16 @@
         <mat-card-header>
           <mat-card-title>{{ T.candles_subtitle }}</mat-card-title>
         </mat-card-header>
-        <mat-card-content>
-          <app-carousel #candlesCarousel [category]="Category.Candles" [maxHeight]="'500px'"></app-carousel>
-        </mat-card-content>
-        <mat-card-footer>
-          <p>{{ T.candles_footer_message | text }}</p>
-        </mat-card-footer>
       </mat-card>
     </mat-tab>
 
   </mat-tab-group>
+  <app-carousel
+    #carousel
+    [category]="Category.Paintings"
+    [maxHeight]="'500px'"></app-carousel>
+  <mat-card-footer>
+    <p>{{ footerText }}</p>
+  </mat-card-footer>
+  <div class="bottom"></div>
 </div>

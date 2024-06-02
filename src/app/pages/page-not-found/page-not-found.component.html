@@ -1,1 +1,10 @@
-<p>page-not-found works!</p>
+<div class="page-not-found">
+  <mat-card>
+    <mat-card-content>
+      <h1>404</h1>
+      <h2>{{ T.p404_Title | text }}</h2>
+      <p>{{ T.p404_Message | text }}</p>
+      <button mat-raised-button color="primary" routerLink="/">{{ T.go_home | text }}</button>
+    </mat-card-content>
+  </mat-card>
+</div>

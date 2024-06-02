@@ -50,5 +50,8 @@ export enum T {
   candles_subtitle = '>Placeholder for candles subtitle<',
   candles_footer_message = '>Placeholder for candles footer message<',
   write_me = '>Placeholder for write me<',
+  p404_Title = '>Placeholder for 404 title<',
+  p404_Message = '>Placeholder for 404 message<',
+  go_home = '>Placeholder for go home<',
 }
 
