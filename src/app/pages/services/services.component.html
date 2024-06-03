@@ -1,6 +1,6 @@
 <div>
   <h2>{{ T.services_header }}</h2>
-  <mat-tab-group #tabGroup animationDuration="500ms" class="custom-tabs">
+  <mat-tab-group #tab_group_main animationDuration="500ms" class="custom-tabs">
     <!-- Paintings -->
     <mat-tab [label]="getText(T.paintings_header)">
       <mat-card>
@@ -15,6 +15,43 @@
         <mat-card-header>
           <mat-card-title>{{ T.photography_subtitle }}</mat-card-title>
         </mat-card-header>
+        <mat-card-content>
+          <mat-tab-group #tab_group_photo animationDuration="500ms" class="custom-tabs">
+            <!-- Category 1 -->
+            <mat-tab [label]="getText(T.photography_category_1)">
+              <mat-card>
+                <mat-card-header>
+                  <mat-card-title>{{ T.photography_category1_subtitle }}</mat-card-title>
+                </mat-card-header>
+              </mat-card>
+            </mat-tab>
+            <!-- Category 2 -->
+            <mat-tab [label]="getText(T.photography_category_2)">
+              <mat-card>
+                <mat-card-header>
+                  <mat-card-title>{{ T.photography_category2_subtitle }}</mat-card-title>
+                </mat-card-header>
+              </mat-card>
+            </mat-tab>
+            <!-- Category 3 -->
+            <mat-tab [label]="getText(T.photography_category_3)">
+              <mat-card>
+                <mat-card-header>
+                  <mat-card-title>{{ T.photography_category3_subtitle }}</mat-card-title>
+                </mat-card-header>
+              </mat-card>
+            </mat-tab>
+            <!-- Category 4 -->
+            <mat-tab [label]="getText(T.photography_category_4)">
+              <mat-card>
+                <mat-card-header>
+                  <mat-card-title>{{ T.photography_category4_subtitle }}</mat-card-title>
+                </mat-card-header>
+              </mat-card>
+            </mat-tab>
+
+          </mat-tab-group>
+        </mat-card-content>
       </mat-card>
     </mat-tab>
     <!-- Candles -->

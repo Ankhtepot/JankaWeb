@@ -1,5 +1,5 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {Category, ImagesService} from "../../services/images.service";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Category} from "../../services/images.service";
 import {T, TextService} from "../../services/text.service";
 import {CarouselComponent} from "../../Components/carousel/carousel.component";
 import {MatTabGroup} from "@angular/material/tabs";
@@ -9,26 +9,26 @@ import {MatTabGroup} from "@angular/material/tabs";
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss',
 })
-export class ServicesComponent implements OnInit, AfterViewInit {
-  @ViewChild('tabGroup', {static: true}) tabGroup: MatTabGroup;
+export class ServicesComponent implements OnInit {
+  @ViewChild('tab_group_main', {static: true}) mainTabGroup: MatTabGroup;
+  @ViewChild('tab_group_photo', {static: true}) photoTabGroup: MatTabGroup;
   @ViewChild('carousel') carousel: CarouselComponent;
   protected readonly Category = Category;
   protected readonly T = T;
   footerText: string;
 
   constructor(
-    private imageService: ImagesService,
     private textService: TextService
   ) {
   }
 
   ngOnInit(): void {
     this.footerText = this.getText(T.paintings_footer_message);
-  }
-
-  ngAfterViewInit(): void {
-    this.tabGroup.selectedIndexChange.subscribe((index: number) => {
+    this.mainTabGroup.selectedIndexChange.subscribe((index: number) => {
       this.handleTabChange(index);
+    });
+    this.photoTabGroup.selectedIndexChange.subscribe((index: number) => {
+      this.handleTabChange(index+10);
     });
   }
 
@@ -38,12 +38,21 @@ export class ServicesComponent implements OnInit, AfterViewInit {
       if (index === 0) {
         category = Category.Paintings;
         this.footerText = this.getText(T.paintings_footer_message);
-      } else if (index === 1) {
+      } else if (index === 1 || index === 10) {
         category = Category.PhotoOne;
-        this.footerText = this.getText(T.photography_footer_message);
+        this.footerText = this.getText(T.photography_category1_footer_message);
       } else if (index === 2) {
         category = Category.Candles;
         this.footerText = this.getText(T.candles_footer_message);
+      } else if (index === 11) {
+        category = Category.PhotoTwo;
+        this.footerText = this.getText(T.photography_category2_footer_message);
+      } else if (index === 12) {
+        category = Category.PhotoThree;
+        this.footerText = this.getText(T.photography_category3_footer_message);
+      } else if (index === 13) {
+        category = Category.PhotoFour;
+        this.footerText = this.getText(T.photography_category4_footer_message);
       }
 
     if (this.carousel) {
