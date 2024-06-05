@@ -1,6 +1,7 @@
 <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+  <h2>{{ T.write_me | text }}</h2>
   <div>
-    <mat-form-field [style.width.vw]="50">
+    <mat-form-field class="shorter-field">
       <mat-label>{{ T.input_name | text }}</mat-label>
       <input
         matInput name="meno"
@@ -19,7 +20,7 @@
   </div>
 
   <div>
-    <mat-form-field [style.width.vw]="50">
+    <mat-form-field class="shorter-field">
       <mat-label>{{ T.input_email | text }}</mat-label>
       <input
         matInput type="email"
@@ -37,16 +38,16 @@
     </mat-form-field>
   </div>
 
-  <mat-form-field [style.width.vw]="90">
+  <mat-form-field>
     <mat-label>{{ T.input_message | text }}</mat-label>
     <textarea
       matInput
-      name="zprava"
+      name="message"
       [(ngModel)]="contact.zprava"
-      #zprava="ngModel"
+      #message="ngModel"
       required></textarea>
-    <mat-error *ngIf="zprava.errors?.required && zprava.touched">
-      {{ T.input_email_required | text }}
+    <mat-error *ngIf="message.errors?.required && message.touched">
+      {{ T.input_message_required | text }}
     </mat-error>
   </mat-form-field>
 

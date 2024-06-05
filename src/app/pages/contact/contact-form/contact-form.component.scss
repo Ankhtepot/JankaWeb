@@ -1,7 +1,28 @@
-mat-form-field {
+mat-form-field, h2 {
   margin: 0.5em 2em 0 2em;
+  width: 45vw;
+}
+
+.shorter-field {
+  width: 25vw;
+}
+
+h2 {
+  margin-bottom: 2em;
 }
 
 button {
   margin: 1em 2em;
+}
+
+// media for < 600 mat-form-field width === 90vw
+@media only screen and (max-width: 900px) {
+  mat-form-field {
+    width: 80vw;
+
+  }
+
+  .shorter-field {
+    width: 80vw;
+  }
 }

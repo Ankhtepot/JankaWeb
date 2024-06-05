@@ -31,6 +31,7 @@ import { HeaderComponent } from './Components/header/header.component';
 import { LogoScreenComponent } from './Components/logo-screen/logo-screen.component';
 import { TextPipe } from './pipes/text.pipe';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
     NgOptimizedImage,
     MatProgressSpinner,
     WrapSwappingBackgroundComponent,
+    FlexLayoutModule,
   ],
   providers: [
     provideAnimationsAsync('animations'),
