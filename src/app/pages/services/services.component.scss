@@ -36,8 +36,8 @@ mat-card-footer {
 }
 
 .custom-tabs {
-  --mat-tab-header-active-label-text-color: #{$dodger-blue};
-  --mat-tab-header-active-focus-label-text-color: #{$dodger-blue};
+  --mat-tab-header-active-label-text-color: #{$header-color};
+  --mat-tab-header-active-focus-label-text-color: #{$header-color};
   --mat-tab-header-label-text-weight: 700;
 
   ::ng-deep .mat-mdc-tab {

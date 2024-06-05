@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {T} from "../../services/text.service";
 
 @Component({
   selector: 'app-contact',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
+  protected readonly T = T;
 }

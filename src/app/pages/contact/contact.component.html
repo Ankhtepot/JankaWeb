@@ -7,12 +7,12 @@
   <div fxFlex="100%" fxFlex.gt-sm="50%">
         <h2>Contact Information</h2>
     <div class="contact-info-grid">
-      <div class="label">Address:</div>
-      <div class="value">1234 Street, City, Country</div>
-      <div class="label">Phone:</div>
-      <div class="value">(123) 456-7890</div>
-      <div class="label">Email:</div>
-      <div class="value">info&#64;company.com</div>
+      <div class="label">{{ T.address_label | text }}</div>
+      <div class="value">{{ T.address_value | text }}</div>
+      <div class="label">{{ T.phone_label | text }}</div>
+      <div class="value">{{ T.phone_value | text }}</div>
+      <div class="label">{{ T.email_label | text }}</div>
+      <div class="value">{{ T.email_value | text }}</div>
     </div>
         <div class="map-container">
           <iframe

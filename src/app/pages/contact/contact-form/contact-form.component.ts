@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {T} from "../../../services/text.service";
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-contact-form',
@@ -13,7 +14,7 @@ export class ContactFormComponent {
     zprava: ''
   };
 
-  onSubmit(form: any) {
+  onSubmit(form: FormGroup) {
     if (form.valid) {
       console.log('Sending email:', this.contact);
       // Implement email sending functionality here
