@@ -5,7 +5,7 @@
       <mat-label>{{ T.input_name | text }}</mat-label>
       <input
         matInput name="meno"
-        [(ngModel)]="contact.meno"
+        [(ngModel)]="contact.name"
         #meno="ngModel"
         required
         minlength="3"
@@ -43,7 +43,7 @@
     <textarea
       matInput
       name="message"
-      [(ngModel)]="contact.zprava"
+      [(ngModel)]="contact.message"
       #message="ngModel"
       required></textarea>
     <mat-error *ngIf="message.errors?.required && message.touched">
