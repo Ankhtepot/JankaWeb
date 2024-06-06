@@ -5,7 +5,11 @@
       *ngFor="let img of images"
       [ngStyle]="{'height': maxHeight, 'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}"
     >
-      <app-image-slide [image]="img" class="swiper-slide"></app-image-slide>
+      <app-image-slide
+        [image]="img"
+        [category]="category"
+        class="swiper-slide"
+      ></app-image-slide>
     </div>
   </div>
 </div>
