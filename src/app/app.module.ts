@@ -32,6 +32,7 @@ import { LogoScreenComponent } from './Components/logo-screen/logo-screen.compon
 import { TextPipe } from './pipes/text.pipe';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
+import { ImageDetailComponent } from './pages/image-detail/image-detail.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     LogoScreenComponent,
     TextPipe,
     ContactFormComponent,
+    ImageDetailComponent,
   ],
   imports: [
     BrowserModule,
