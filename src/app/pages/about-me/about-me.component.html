@@ -1,8 +1,13 @@
 <mat-card class="content">
   <div class="profile-section">
     <p>
-      <img mat-card-image [src]="profileImagePath" alt="Profile Image"
-      >{{ T.about_me | text }}</p>
+      <img mat-card-image [src]="profileImagePath" alt="Profile Image">
+      {{ T.about_me_part1 | text }}
+      <br><br>
+      {{ T.about_me_part2 | text }}
+      <br><br>
+      {{ T.about_me_part3 | text }}
+    </p>
   </div>
 </mat-card>
 <div style="height: 100px"></div>
