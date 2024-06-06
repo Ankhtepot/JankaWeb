@@ -1,0 +1,11 @@
+<div class="swiper-slide">
+  <img
+    [src]="image"
+    alt="Custom Paintings"
+    class="swiper-slide"
+  >
+  <div class="hover-frame">
+    <span class="hover-icon" (click)="onIconClick()"><i class="material-icons">open_in_new</i></span>
+    <span class="hover-text">{{ T.expand_image | text }}</span>
+  </div>
+</div>

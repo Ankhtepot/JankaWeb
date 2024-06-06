@@ -33,6 +33,7 @@ import { TextPipe } from './pipes/text.pipe';
 import { ContactFormComponent } from './pages/contact/contact-form/contact-form.component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { ImageDetailComponent } from './pages/image-detail/image-detail.component';
+import { ImageSlideComponent } from './Components/carousel/image-slide/image-slide.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { ImageDetailComponent } from './pages/image-detail/image-detail.componen
     TextPipe,
     ContactFormComponent,
     ImageDetailComponent,
+    ImageSlideComponent,
   ],
   imports: [
     BrowserModule,

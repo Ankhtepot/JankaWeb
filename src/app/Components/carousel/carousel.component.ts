@@ -123,9 +123,5 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  onIconClick() {
-    console.log('Icon clicked!');
-  }
-
   protected readonly T = T;
 }
