@@ -4,6 +4,7 @@ import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import {Category, ImagesService} from "../../services/images.service";
 import {ScreenService} from "../../services/screen.service";
 import {Subscription} from "rxjs";
+import {T} from "../../services/text.service";
 
 function resolveSlidesCount(mediaBreakpoint: string) {
   if (mediaBreakpoint === 'xs' || mediaBreakpoint === 'sm') {
@@ -67,12 +68,13 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
     this.swiper = new Swiper('.swiper', {
       slidesPerView: resolveSlidesCount(this.screenService.mediaBreakpoint$.value),
       centeredSlides: true,
-      spaceBetween: 30,
+      spaceBetween: 0,
       loop: true,
       speed: 2000,
       autoplay: {
         delay: 2000,
         disableOnInteraction: false,
+        pauseOnMouseEnter: true,
       },
       modules: [Navigation, Pagination, Autoplay],
     });
@@ -120,4 +122,10 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
 `;
     }
   }
+
+  onIconClick() {
+    console.log('Icon clicked!');
+  }
+
+  protected readonly T = T;
 }

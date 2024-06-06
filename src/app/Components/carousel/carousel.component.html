@@ -5,7 +5,15 @@
       *ngFor="let img of images"
       [ngStyle]="{'height': maxHeight, 'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}"
     >
-      <img [src]="img" alt="Custom Paintings">
+      <img
+        [src]="img"
+        alt="Custom Paintings"
+        class="swiper-slide"
+      >
+      <div class="hover-frame">
+        <span class="hover-icon" (click)="onIconClick()"><i class="material-icons">open_in_new</i></span>
+        <span class="hover-text">{{ T.expand_image | text }}</span>
+      </div>
     </div>
   </div>
 </div>
