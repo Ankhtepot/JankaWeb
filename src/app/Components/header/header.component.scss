@@ -81,7 +81,7 @@
   $background-color: 255;
 
   a.active {
-    color: dodgerblue; // Primary color text
+    color: $header-color; // Primary color text
     background-color: rgba($background-color, $background-color, $background-color, 0.6);
     font-weight: bold; // Make the active link bold
 
@@ -111,3 +111,22 @@
   background-color: transparent;
   z-index: 1000;
 }
+
+.menu-button {
+  position: fixed;
+  top: 1.4em;
+  left: 1.3em;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  z-index: 1001; // Ensure it's above other elements
+}
+
+mat-icon {
+  color: $header-color;
+}
+

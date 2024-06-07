@@ -1,4 +1,4 @@
-<app-logo-screen *ngIf="isOnEligiblePage()"/>
+<app-logo-screen *ngIf="isOnEligiblePage()"></app-logo-screen>
 <div
   class="show_trigger"
   (mouseenter)="onShowHeader()"
@@ -31,3 +31,19 @@
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<!-- Hamburger menu for mobile view -->
+<button
+  *ngIf="!isOnEligiblePage()"
+  class="menu-button"
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+>
+  <mat-icon>menu</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/about-me']">{{ T.aboutMe_anchor | text }}</button>
+  <button mat-menu-item [routerLink]="['/services']">{{ T.services_anchor | text }}</button>
+  <button mat-menu-item [routerLink]="['/contact']">{{ T.contact_anchor | text }}</button>
+</mat-menu>
