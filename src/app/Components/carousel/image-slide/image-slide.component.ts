@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {T} from "../../../services/text.service";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-image-slide',
@@ -11,7 +10,7 @@ export class ImageSlideComponent {
   @Input() image: string;
   @Input() category: string;
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   onIconClick() {

@@ -25,9 +25,23 @@ img:active {
 
 .controls {
   position: fixed;
-  top: 40%;
-  left: 10px;
+  top: 30%;
+  left: 1.5em;
+  width: 3em;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+.scale-display {
+  margin-bottom: 10px;
+}
+
+mat-slider {
+  rotate: 270deg;
+  margin: 1.5em 0;
 }

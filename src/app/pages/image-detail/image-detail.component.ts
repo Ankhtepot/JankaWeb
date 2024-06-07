@@ -12,6 +12,7 @@ export class ImageDetailComponent implements OnInit {
   category: string;
   imageUrl: string;
   scale: number = 1;
+  maxScale: number = 5;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -23,32 +24,12 @@ export class ImageDetailComponent implements OnInit {
     });
   }
 
-  zoomIn() {
-    this.scale += 0.1;
+  zoomMax() {
+    this.scale = this.maxScale;
     this.applyScale();
   }
 
-  zoomOut() {
-    if (this.scale > 0.1) {
-      this.scale -= 0.1;
-      this.applyScale();
-    }
-  }
-
-  zoomMax() {
-    const img = this.imageElement.nativeElement;
-    const container = img.parentElement;
-    if (container) {
-      const containerWidth = container.clientWidth;
-      const containerHeight = container.clientHeight;
-      const widthScale = img.naturalWidth / containerWidth;
-      const heightScale = img.naturalHeight / containerHeight;
-      this.scale = Math.max(widthScale, heightScale);
-      this.applyScale();
-    }
-  }
-
-  zoomMin() {
+  resetZoom() {
     this.scale = 1;
     this.applyScale();
   }

@@ -2,6 +2,7 @@ import {Component, HostListener, Input, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {ScreenService} from "../../services/screen.service";
 import {T} from "../../services/text.service";
+import {Router} from "@angular/router";
 
 const showTime = 2000;
 
@@ -20,7 +21,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   public mediaBreakpoint: string;
   private hideHeaderTimer: any;
 
-  constructor(private screenService: ScreenService) {
+  constructor(
+    private screenService: ScreenService,
+    private router: Router,
+  ) {
   }
 
   ngOnInit() {
@@ -91,6 +95,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.showHeader = false;
       this.screenService.headerVisibilityChanged$.next(this.showHeader);
     }, showTime);
+  }
+
+  isOnEligiblePage() {
+    return !this.router.url.includes('/detail/');
   }
 
   protected readonly T = T;

@@ -34,6 +34,7 @@ import { ContactFormComponent } from './pages/contact/contact-form/contact-form.
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { ImageDetailComponent } from './pages/image-detail/image-detail.component';
 import { ImageSlideComponent } from './Components/carousel/image-slide/image-slide.component';
+import {MatSlider, MatSliderThumb} from "@angular/material/slider";
 
 
 @NgModule({
@@ -69,6 +70,8 @@ import { ImageSlideComponent } from './Components/carousel/image-slide/image-sli
     MatProgressSpinner,
     WrapSwappingBackgroundComponent,
     FlexLayoutModule,
+    MatSlider,
+    MatSliderThumb,
   ],
   providers: [
     provideAnimationsAsync('animations'),
