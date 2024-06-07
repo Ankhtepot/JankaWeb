@@ -1,24 +1,26 @@
 <div class="image-container">
-  <img #image id="image" [src]="imageUrl" alt="Image Detail"/>
+    <img #image id="image" [src]="imageUrl" alt="Image Detail"/>
 </div>
 <div class="controls">
-  <div class="scale-display">x{{ scale.toFixed(1) }}</div>
-  <button mat-icon-button (click)="zoomMax()" aria-label="Zoom Max">
-    <mat-icon>zoom_in</mat-icon>
-  </button>
-  <mat-slider
-    [min]="0.5"
-    [max]="maxScale"
-    [step]="0.1"
-    discrete="true"
-  >
-    <input
-      matSliderThumb
-      [(ngModel)]="scale"
-      (input)="applyScale()"
+    <div class="scale-display">x{{ scale.toFixed(1) }}</div>
+    <button mat-button (click)="zoomMax()" aria-label="Zoom Max" class="zoom-button">Min</button>
+    <button mat-icon-button (click)="zoomIn()" aria-label="Zoom Max">
+        <mat-icon>zoom_in</mat-icon>
+    </button>
+    <mat-slider
+            [min]="0.5"
+            [max]="maxScale"
+            [step]="0.1"
+            discrete="true"
     >
-  </mat-slider>
-  <button mat-icon-button (click)="resetZoom()" aria-label="Reset Zoom">
-    <mat-icon>zoom_out</mat-icon>
-  </button>
+        <input
+                matSliderThumb
+                [(ngModel)]="scale"
+                (input)="applyScale()"
+        >
+    </mat-slider>
+    <button mat-icon-button (click)="zoomOut()" aria-label="Zoom Max">
+        <mat-icon>zoom_out</mat-icon>
+    </button>
+    <button mat-button (click)="resetZoom()" aria-label="Reset Zoom" class="zoom-button">Min</button>
 </div>

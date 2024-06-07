@@ -12,6 +12,8 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
   category: string;
   imageUrl: string;
   scale: number = 1;
+  scaleStep: number = 0.1;
+  minScale: number = 0.5;
   maxScale: number = 5;
 
   private isDragging: boolean = false;
@@ -70,6 +72,22 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
     this.applyScale();
   }
 
+  zoomIn() {
+    if (this.scale >= this.maxScale) return;
+
+    this.scale += this.scaleStep;
+    if (this.scale > this.maxScale) this.scale = this.maxScale;
+    this.applyScale();
+  }
+
+  zoomOut() {
+    if (this.scale <= this.minScale) return;
+
+    this.scale -= this.scaleStep;
+    if (this.scale < this.minScale) this.scale = this.minScale;
+    this.applyScale();
+  }
+
   resetZoom() {
     this.scale = 1;
     this.applyScale();
@@ -78,7 +96,7 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
   applyScale() {
     const img = this.imageElement.nativeElement;
     img.style.transform = `scale(${this.scale})`;
-    img.style.transformOrigin = 'center'; // Center the image
+    // img.style.transformOrigin = 'center'; // Center the image
   }
 
   private onMouseDown(event: MouseEvent): void {
