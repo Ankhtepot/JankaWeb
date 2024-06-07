@@ -1,5 +1,4 @@
-<!--<app-logo-screen *ngIf="mediaBreakpoint !== 'xs'"/>-->
-<app-logo-screen/>
+<app-logo-screen *ngIf="isOnEligiblePage()"/>
 <div
   class="show_trigger"
   (mouseenter)="onShowHeader()"
@@ -24,10 +23,7 @@
       class="logo"
       *ngIf="mediaBreakpoint !== 'xs'"
     >
-<!--    <span class="title" *ngIf="mediaBreakpoint === 'xs'">{{ title }}  </span>-->
-<!--    <span class="title">{{ title }}</span>-->
     <span class="menu-spacer"></span>
-<!--    <div class="nav-container" *ngIf="mediaBreakpoint !== 'xs'">-->
     <div class="nav-container">
       <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">{{  T.aboutMe_anchor | text }}</a>
       <a mat-button [routerLink]="['/services']" routerLinkActive="active">{{ T.services_anchor | text }}</a>
