@@ -29,7 +29,7 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category')!;
       this.filename = params.get('filename')!;
-      this.imageUrl = `../../../assets/images/${this.category.toLowerCase()}/${this.filename}`;
+      this.imageUrl = `assets/images/${this.category.toLowerCase()}/${this.filename}`;
     });
   }
 
