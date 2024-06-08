@@ -37,6 +37,7 @@ import {ImageSlideComponent} from './Components/carousel/image-slide/image-slide
 import {MatSlider, MatSliderThumb} from "@angular/material/slider";
 import {MatMenuModule} from "@angular/material/menu";
 import { ContactInfoComponent } from './pages/contact/contact-info/contact-info.component';
+import {HeaderProfessionalComponent} from "./Components/header_professional/header-professional.component";
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { ContactInfoComponent } from './pages/contact/contact-info/contact-info.
     ContactComponent,
     CarouselComponent,
     HeaderComponent,
+    HeaderProfessionalComponent,
     LogoScreenComponent,
     TextPipe,
     ContactFormComponent,

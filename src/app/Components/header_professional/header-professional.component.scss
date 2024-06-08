@@ -1,0 +1,139 @@
+@import "../../../styles/colors";
+
+$background-color: 255;
+
+.header {
+  width: 100%;
+  position: fixed; // or 'absolute' depending on your layout needs
+  top: 0;
+  left: 0;
+  z-index: 1000; // High z-index to keep it above other content
+  //background-color  as gradient mealic brown from 100% to 25% transparency from top to down
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.50));
+  height: 110px;
+  font-family: "Cactus Classical Serif", serif;
+  //border black blured only down direction
+  box-shadow: -1px 20px 22px 23px rgba(0,0,0,0.5);
+  -webkit-box-shadow: -1px 20px 22px 23px rgba(0,0,0,0.5);
+  -moz-box-shadow: -1px 20px 22px 23px rgba(0,0,0,0.5);
+
+  h1 {
+    margin-left: 1rem;
+  }
+
+  .title {
+    color: white;
+    margin-left: 3.5em;
+    margin-right: 2em;
+    font-family: inherit;
+    font-size: 36px;
+    font-weight: bolder;
+  }
+
+  .logo {
+    width: 200px;
+    height: 100px;
+    margin-left: 1em;
+  }
+
+  .nav-container {
+    display: flex; // Align children (anchor tags) in a row
+    justify-content: flex-start; // Align children to the start of the container
+    align-items: center; // Vertically center the anchor tags in the container
+    font-family: inherit;
+    font-weight: bold;
+  }
+
+  a {
+    color: white; // Text color for inactive links
+    text-decoration: none; // No underline
+    font-family: inherit;
+    font-weight: 300;
+    font-size: 26px;
+    padding: 1.2em 30px; // Padding for better click area
+    display: flex; // inline-block Necessary for padding to take effect
+    justify-content: center;
+    align-items: center;
+    //border-radius: 1.2em; // Rounded edges for the oval shape
+    transition: background-color 0.3s; // Smooth transition for background color
+    margin-left: 1rem;
+    //background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 0.2em;
+    border: #ECEFF1 solid 1px;
+
+    &:hover {
+      background-color: rgba($background-color, $background-color, $background-color, 0.4); // Lighter background on hover
+      color: white; // Darker text on hover
+    }
+  }
+
+  @media (max-width: 500px) {
+    .title {
+      margin-left: 1em;
+      margin-right: 1em;
+      font-size: 20px;
+    }
+
+    a {
+      font-size: 20px;
+      padding: 1em 15px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 50px;
+      margin-left: 0.5em;
+    }
+  }
+
+  a.active {
+    color: white; // Primary color text
+    background-color: rgba($background-color, $background-color, $background-color, 0.2);
+    transition: color 0.3s;
+    font-weight: bold; // Make the active link bold
+
+    &:hover {
+      background-color: rgba($background-color, $background-color, $background-color, 0.6); // Keep background white even on hover
+      color: white;
+    }
+  }
+}
+
+.header.hidden {
+  transform: translateY(-100%); // Slide the header out of view
+  transition: transform 0.3s ease-in-out;
+}
+
+.header.visible {
+  transform: translateY(0); // Slide the header into view
+  transition: transform 0.3s ease-in-out;
+}
+
+.show_trigger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.menu-button {
+  position: fixed;
+  top: 1.4em;
+  left: 1.3em;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  z-index: 1001; // Ensure it's above other elements
+}
+
+mat-icon {
+  color: $header-color;
+}
+

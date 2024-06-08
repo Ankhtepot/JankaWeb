@@ -1,0 +1,43 @@
+<app-logo-screen *ngIf="isOnEligiblePage()"></app-logo-screen>
+<div
+  class="show_trigger"
+  (mouseenter)="onShowHeader()"
+  (pointerenter)="onShowHeader()"
+  (touchstart)="onShowHeader()"
+></div>
+<mat-toolbar
+  *ngIf="isOnEligiblePage()"
+  class="header"
+  [class.visible]="showHeader"
+  [class.hidden]="!showHeader"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  (pointerenter)="onMouseEnter()"
+  (pointerleave)="onMouseLeave()"
+>
+  <mat-toolbar-row style="height: 110px">
+    <h1 class="title" *ngIf="mediaBreakpoint !== 'xs'">{{ title }}</h1>
+    <span class="menu-spacer"></span>
+    <div class="nav-container">
+      <a mat-button [routerLink]="['/about-me']" routerLinkActive="active">{{ T.aboutMe_anchor | text }}</a>
+      <a mat-button [routerLink]="['/services']" routerLinkActive="active">{{ T.services_anchor | text }}</a>
+      <a mat-button [routerLink]="['/contact']" routerLinkActive="active">{{ T.contact_anchor | text }}</a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- Hamburger menu for mobile view -->
+<button
+  *ngIf="!isOnEligiblePage()"
+  class="menu-button"
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+>
+  <mat-icon>menu</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="['/about-me']">{{ T.aboutMe_anchor | text }}</button>
+  <button mat-menu-item [routerLink]="['/services']">{{ T.services_anchor | text }}</button>
+  <button mat-menu-item [routerLink]="['/contact']">{{ T.contact_anchor | text }}</button>
+</mat-menu>
