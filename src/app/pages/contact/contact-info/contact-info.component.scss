@@ -2,14 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //padding: 10px; // Add padding as needed
+  /* padding: 10px; */ /* Commented out as requested */
+  min-height: 48px; /* Adjust this value to standardize the height */
 
   .label {
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    flex-shrink: 0; // Prevent shrinking to maintain width
+    flex-shrink: 0;
 
     .text-icon {
       display: flex;
@@ -22,15 +23,33 @@
     }
 
     .colon {
-      margin-left: 5px; // Adjust this margin as needed
+      margin-left: 5px;
     }
   }
 
-  .value {
-    word-wrap: break-word;
+  .value-wrapper {
+    position: relative;
     display: flex;
     align-items: center;
-    flex: 1; // Ensure it takes the remaining space
-    padding-left: 10px; // Add padding as needed
+    flex: 1;
+    padding-left: 10px;
+
+    .value {
+      word-wrap: break-word;
+      display: flex;
+      align-items: center;
+      flex: 1; /* Ensure value takes up remaining space */
+
+      button {
+        margin-left: 10px; /* Adjust margin as needed */
+        background: none;
+        border: none;
+        cursor: pointer;
+
+        mat-icon {
+          font-size: 18px; /* Adjust the icon size */
+        }
+      }
+    }
   }
 }

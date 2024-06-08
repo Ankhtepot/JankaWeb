@@ -80,5 +80,6 @@ export enum T {
   email_label = 'Email', // nadpis Email na strance Kontakt
   email_value = 'foteniejeradost@gmail.com', // email na strance Kontakt
   expand_image = 'Zväčšiť obrázok', // text na tlacitku pro zvetseni obrazku
+  value_copied = 'bolo skopírované do pameti', // text, ktery se zobrazi po skopirovani hodnoty do schranky
 }
 

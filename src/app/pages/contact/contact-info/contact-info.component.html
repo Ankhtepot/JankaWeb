@@ -6,5 +6,12 @@
     </span>
     <span class="colon">:</span>
   </div>
-  <div class="value">{{ value() }}</div>
+  <div class="value-wrapper">
+    <div class="value">
+      {{ value() }}
+      <button *ngIf="canBeCopied()" mat-icon-button (click)="copyToClipboard()">
+        <mat-icon>content_copy</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>

@@ -17,16 +17,18 @@
       ></app-contact-info>
       <app-contact-info
         [label]="getText(T.phone_label)"
-        [value]="getText(T.phone_label)"
+        [value]="getText(T.phone_value)"
         [icon]="'phone'"
         [canBeCopied]="true"
+        [successCopyMessage]="getText(T.value_copied)"
         [labelWidth]="labelWidth"
       ></app-contact-info>
       <app-contact-info
         [label]="getText(T.email_label)"
-        [value]="getText(T.email_label)"
+        [value]="getText(T.email_value)"
         [icon]="'mail'"
         [canBeCopied]="true"
+        [successCopyMessage]="getText(T.value_copied)"
         [labelWidth]="labelWidth"
       ></app-contact-info>
       <div class="map-container">
