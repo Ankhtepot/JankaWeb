@@ -138,6 +138,10 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
               <img src="${image}" alt="Image" style="max-height: ${this.maxHeight};"/>
             </div>`).join('')}
         </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev" style="color: white"></div>
+        <div class="swiper-button-next" style="color: white"></div>
+        <div class="swiper-scrollbar"></div>
 `;
     }
   }
