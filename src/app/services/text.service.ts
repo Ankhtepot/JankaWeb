@@ -73,11 +73,11 @@ export enum T {
   input_message = 'Zpráva', // Nadpis Zprava v kontaktnim formulari
   input_message_required = 'Pole \'Zpráva\' je povinné.', // Chybova hlaska v kontaktnim formulari pro zpravu
   button_send = 'Odoslať', // odesle zpravu napsanou v kontaktnim formulari
-  address_label = 'Adresa:', // nadpis Adresa na strance Kontakt
+  address_label = 'Adresa', // nadpis Adresa na strance Kontakt
   address_value = 'Tobias Klima, 12345, Praha 5', // adresa na strance Kontakt
-  phone_label = 'Telefon:', // nadpis Telefon na strance Kontakt
+  phone_label = 'Telefon', // nadpis Telefon na strance Kontakt
   phone_value = '+420 123 456 789', // telefon na strance Kontakt
-  email_label = 'Email:', // nadpis Email na strance Kontakt
+  email_label = 'Email', // nadpis Email na strance Kontakt
   email_value = 'foteniejeradost@gmail.com', // email na strance Kontakt
   expand_image = 'Zväčšiť obrázok', // text na tlacitku pro zvetseni obrazku
 }

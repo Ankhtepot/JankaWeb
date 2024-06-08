@@ -36,6 +36,7 @@ import {ImageDetailComponent} from './pages/image-detail/image-detail.component'
 import {ImageSlideComponent} from './Components/carousel/image-slide/image-slide.component';
 import {MatSlider, MatSliderThumb} from "@angular/material/slider";
 import {MatMenuModule} from "@angular/material/menu";
+import { ContactInfoComponent } from './pages/contact/contact-info/contact-info.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import {MatMenuModule} from "@angular/material/menu";
     ContactFormComponent,
     ImageDetailComponent,
     ImageSlideComponent,
+    ContactInfoComponent,
   ],
   imports: [
     BrowserModule,

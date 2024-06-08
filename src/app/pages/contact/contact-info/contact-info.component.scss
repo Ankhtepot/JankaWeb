@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  //padding: 10px; // Add padding as needed
+
+  .label {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0; // Prevent shrinking to maintain width
+
+    .text-icon {
+      display: flex;
+      align-items: center;
+
+      mat-icon {
+        margin-left: 5px;
+        vertical-align: middle;
+      }
+    }
+
+    .colon {
+      margin-left: 5px; // Adjust this margin as needed
+    }
+  }
+
+  .value {
+    word-wrap: break-word;
+    display: flex;
+    align-items: center;
+    flex: 1; // Ensure it takes the remaining space
+    padding-left: 10px; // Add padding as needed
+  }
+}

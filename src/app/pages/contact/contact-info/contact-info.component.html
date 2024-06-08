@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="label" [ngStyle]="{ 'width': labelWidth() }">
+    <span class="text-icon">
+      <span>{{ label() }}</span>
+      <mat-icon *ngIf="icon() != unassignedIcon">{{ icon() }}</mat-icon>
+    </span>
+    <span class="colon">:</span>
+  </div>
+  <div class="value">{{ value() }}</div>
+</div>

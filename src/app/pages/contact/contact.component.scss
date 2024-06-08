@@ -19,26 +19,50 @@ h2 {
   margin-bottom: 1.5em;
 }
 
-.contact-info-grid {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-gap: 5px 10px;
-  margin-bottom: 20px;
-}
+//.contact-info-grid {
+//  display: grid;
+//  grid-template-columns: auto 1fr;
+//  grid-gap: 5px 10px;
+//  margin-bottom: 20px;
+//}
 
-.label {
-  font-weight: bold;
-  text-align: right;
-  padding-right: 10px;
-}
-
-.value {
-  word-wrap: break-word;
-}
+//.label {
+//  font-weight: bold;
+//  text-align: right;
+//  padding-right: 10px;
+//  display: flex;
+//  align-items: center;
+//  justify-content: flex-end;
+//
+//  .text-icon {
+//    display: flex;
+//    align-items: center;
+//
+//    mat-icon {
+//      margin-left: 5px;
+//      vertical-align: middle;
+//    }
+//  }
+//
+//  .colon {
+//    display: inline-block;
+//    width: 10px; /* Adjust this width as needed */
+//  }
+//}
+//
+//.value {
+//  word-wrap: break-word;
+//  display: flex;
+//  align-items: center;
+//}
 
 .mat-divider {
   border-width: 3px; /* Increase the thickness here */
   border-color: $header-color;//rgba(0, 0, 0, 0.12); /* You can also customize the color */
   border-style: solid;
   border-radius: 2px;
+}
+
+mat-icon {
+
 }

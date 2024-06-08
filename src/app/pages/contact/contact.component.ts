@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {T} from "../../services/text.service";
+import {T, TextService} from "../../services/text.service";
 
 @Component({
   selector: 'app-contact',
@@ -7,6 +7,12 @@ import {T} from "../../services/text.service";
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-
   protected readonly T = T;
+  labelWidth: string = '100px'; // Default width
+
+  constructor(private textService: TextService) { }
+
+  getText(address_value: T) {
+    return this.textService.get(address_value);
+  }
 }

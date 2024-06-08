@@ -5,19 +5,35 @@
   <mat-divider [vertical]="true" fxHide.lt-md></mat-divider>
   <mat-divider fxHide.gt-sm></mat-divider>
   <div fxFlex="100%" fxFlex.gt-sm="50%">
-        <h2>Contact Information</h2>
-    <div class="contact-info-grid">
-      <div class="label">{{ T.address_label | text }}</div>
-      <div class="value">{{ T.address_value | text }}</div>
-      <div class="label">{{ T.phone_label | text }}</div>
-      <div class="value">{{ T.phone_value | text }}</div>
-      <div class="label">{{ T.email_label | text }}</div>
-      <div class="value">{{ T.email_value | text }}</div>
+    <h2>Contact Information</h2>
+    <!--    <div class="contact-info-grid">-->
+    <div>
+      <app-contact-info
+        [label]="getText(T.address_label)"
+        [value]="getText(T.address_value)"
+        [icon]="'location_on'"
+        [canBeCopied]="false"
+        [labelWidth]="labelWidth"
+      ></app-contact-info>
+      <app-contact-info
+        [label]="getText(T.phone_label)"
+        [value]="getText(T.phone_label)"
+        [icon]="'phone'"
+        [canBeCopied]="true"
+        [labelWidth]="labelWidth"
+      ></app-contact-info>
+      <app-contact-info
+        [label]="getText(T.email_label)"
+        [value]="getText(T.email_label)"
+        [icon]="'mail'"
+        [canBeCopied]="true"
+        [labelWidth]="labelWidth"
+      ></app-contact-info>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019209368291!2d-122.41941508468142!3d37.77492977975945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085817cba0c7e3d%3A0xf3c54e24a116eb0!2sSan+Francisco%2C+CA!5e0!3m2!1sen!2sus!4v1549582762335"
+          width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
     </div>
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019209368291!2d-122.41941508468142!3d37.77492977975945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085817cba0c7e3d%3A0xf3c54e24a116eb0!2sSan+Francisco%2C+CA!5e0!3m2!1sen!2sus!4v1549582762335"
-            width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
-        </div>
   </div>
 </div>
