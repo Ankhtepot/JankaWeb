@@ -8,14 +8,9 @@ $background-color: 255;
   top: 0;
   left: 0;
   z-index: 1000; // High z-index to keep it above other content
-  //background-color  as gradient mealic brown from 100% to 25% transparency from top to down
   background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.50));
   height: 110px;
   font-family: "Cactus Classical Serif", serif;
-  //border black blured only down direction
-  box-shadow: -1px 20px 22px 23px rgba(0,0,0,0.5);
-  -webkit-box-shadow: -1px 20px 22px 23px rgba(0,0,0,0.5);
-  -moz-box-shadow: -1px 20px 22px 23px rgba(0,0,0,0.5);
 
   h1 {
     margin-left: 1rem;
@@ -54,10 +49,8 @@ $background-color: 255;
     display: flex; // inline-block Necessary for padding to take effect
     justify-content: center;
     align-items: center;
-    //border-radius: 1.2em; // Rounded edges for the oval shape
     transition: background-color 0.3s; // Smooth transition for background color
     margin-left: 1rem;
-    //background-color: rgba(255, 255, 255, 0.4);
     border-radius: 0.2em;
     border: #ECEFF1 solid 1px;
 

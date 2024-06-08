@@ -18,6 +18,14 @@ function resolveSlidesCount(mediaBreakpoint: string) {
   }
 }
 
+function resolveSlidesPerCount(mediaBreakpoint: string) {
+  if (mediaBreakpoint === 'xs' || mediaBreakpoint === 'sm') {
+    return 1;
+  } else {
+    return 2;
+  }
+}
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -67,6 +75,7 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
     this.images = this.getImages();
     this.swiper = new Swiper('.swiper', {
       slidesPerView: resolveSlidesCount(this.screenService.mediaBreakpoint$.value),
+      slidesPerGroup: resolveSlidesPerCount(this.screenService.mediaBreakpoint$.value),
       centeredSlides: true,
       spaceBetween: 0,
       loop: true,
@@ -77,6 +86,16 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
         pauseOnMouseEnter: true,
       },
       modules: [Navigation, Pagination, Autoplay],
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
     });
     this.elementRef.nativeElement.querySelector('.swiper').style.backgroundImage = `url('${this.fillImageUrl}')`
     this.setSlideStyles();
