@@ -24,6 +24,7 @@
 }
 
 .profile-section {
+
   img {
     width: 300px;
     height: 500px;
@@ -31,6 +32,13 @@
     float: left; // Make the image float left
     margin-right: 20px; // Space between the image and the text
     margin-bottom: 10px; // Space below the image
+  }
+
+  ::ng-deep .text-header {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-family: "Pacifico", cursive;
   }
   //image centers on media width max 600px
   @media (max-width: 600px) {

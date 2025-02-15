@@ -2,10 +2,18 @@
   <div class="profile-section">
     <p>
       <img mat-card-image [src]="profileImagePath" alt="Profile Image">
+      {{ T.about_me_intro | text }}
+      <br><br>
+      <span [innerHTML]="T.about_me_title1 | text: ETextStyle.Header"></span>
+      <br>
       {{ T.about_me_part1 | text }}
       <br><br>
+      <span [innerHTML]="T.about_me_title2 | text: ETextStyle.Header"></span>
+      <br>
       {{ T.about_me_part2 | text }}
       <br><br>
+      <span [innerHTML]="T.about_me_title3 | text: ETextStyle.Header"></span>
+      <br>
       {{ T.about_me_part3 | text }}
     </p>
   </div>

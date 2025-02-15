@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Category, ImageSize, ImagesService} from "../../services/images.service";
 import {T} from "../../services/text.service";
+import {ETextStyle} from "../../pipes/text.pipe";
 
 @Component({
   selector: 'app-about-me',
@@ -19,4 +20,5 @@ export class AboutMeComponent implements OnInit {
 
   protected readonly Text = Text;
   protected readonly T = T;
+  protected readonly ETextStyle = ETextStyle;
 }

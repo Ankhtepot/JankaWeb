@@ -36,22 +36,27 @@ const dummyImages : ImageData[] = [
 })
 export class ImagesService {
   images: { [category: string]: ImageData[] } = {
-    Paintings: [
-      new ImageData('Painting 2', 'assets/images/paintings/2.jpg','assets/images/paintings/miniatures/2.jpg' ),
-      new ImageData('Painting 3', 'assets/images/paintings/3.jpg', 'assets/images/paintings/miniatures/3.jpg'),
-      new ImageData('Painting 4', 'assets/images/paintings/4.jpg', 'assets/images/paintings/miniatures/4.jpg'),
-      new ImageData('Painting 5', 'assets/images/paintings/5.jpg', 'assets/images/paintings/miniatures/5.jpg'),
-      new ImageData('Painting 6', 'assets/images/paintings/6.jpg', 'assets/images/paintings/miniatures/6.jpg'),
-      new ImageData('Painting 8', 'assets/images/paintings/8.jpg', 'assets/images/paintings/miniatures/8.jpg'),
-      new ImageData('Painting 9', 'assets/images/paintings/9.jpg', 'assets/images/paintings/miniatures/9.jpg'),
-      new ImageData('Painting 10', 'assets/images/paintings/10.jpg', 'assets/images/paintings/miniatures/10.jpg'),
-      new ImageData('Painting 11', 'assets/images/paintings/11.jpg', 'assets/images/paintings/miniatures/11.jpg'),
-      new ImageData('Painting 12', 'assets/images/paintings/12.jpg', 'assets/images/paintings/miniatures/12.jpg'),
-      new ImageData('Painting 19', 'assets/images/paintings/19.jpg', 'assets/images/paintings/miniatures/19.jpg'),
-      new ImageData('Painting 21', 'assets/images/paintings/21.jpg', 'assets/images/paintings/miniatures/21.jpg'),
-      new ImageData('Painting 24', 'assets/images/paintings/24.jpg', 'assets/images/paintings/miniatures/24.jpg'),
-      new ImageData('Painting 26', 'assets/images/paintings/26.jpg', 'assets/images/paintings/miniatures/26.jpg'),
-    ],
+    Paintings: this.createImageData(
+      [1, 2, 3, 4, 5, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26,
+        27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48,
+        50, 51, 52, 53, 54, 55, 56],
+      'Painting', 'paintings'),
+    // Paintings: [
+    //   new ImageData('Painting 2', 'assets/images/paintings/2.jpg','assets/images/paintings/miniatures/2.jpg' ),
+    //   new ImageData('Painting 3', 'assets/images/paintings/3.jpg', 'assets/images/paintings/miniatures/3.jpg'),
+    //   new ImageData('Painting 4', 'assets/images/paintings/4.jpg', 'assets/images/paintings/miniatures/4.jpg'),
+    //   new ImageData('Painting 5', 'assets/images/paintings/5.jpg', 'assets/images/paintings/miniatures/5.jpg'),
+    //   new ImageData('Painting 6', 'assets/images/paintings/6.jpg', 'assets/images/paintings/miniatures/6.jpg'),
+    //   new ImageData('Painting 8', 'assets/images/paintings/8.jpg', 'assets/images/paintings/miniatures/8.jpg'),
+    //   new ImageData('Painting 9', 'assets/images/paintings/9.jpg', 'assets/images/paintings/miniatures/9.jpg'),
+    //   new ImageData('Painting 10', 'assets/images/paintings/10.jpg', 'assets/images/paintings/miniatures/10.jpg'),
+    //   new ImageData('Painting 11', 'assets/images/paintings/11.jpg', 'assets/images/paintings/miniatures/11.jpg'),
+    //   new ImageData('Painting 12', 'assets/images/paintings/12.jpg', 'assets/images/paintings/miniatures/12.jpg'),
+    //   new ImageData('Painting 19', 'assets/images/paintings/19.jpg', 'assets/images/paintings/miniatures/19.jpg'),
+    //   new ImageData('Painting 21', 'assets/images/paintings/21.jpg', 'assets/images/paintings/miniatures/21.jpg'),
+    //   new ImageData('Painting 24', 'assets/images/paintings/24.jpg', 'assets/images/paintings/miniatures/24.jpg'),
+    //   new ImageData('Painting 26', 'assets/images/paintings/26.jpg', 'assets/images/paintings/miniatures/26.jpg'),
+    // ],
     PhotoOne: dummyImages,
     PhotoTwo: dummyImages,
     PhotoThree: dummyImages,
@@ -88,5 +93,14 @@ export class ImagesService {
       const randomIndex = Math.floor(Math.random() * this.images[category].length);
       return imageSize == ImageSize.Full ? this.images[category][randomIndex].imageUrl : this.images[category][randomIndex].miniatureUrl;
     }
+  }
+
+  private createImageData(imageNumbers: number[], baseName: string, folderName: string): ImageData[] {
+    return imageNumbers.map(
+      imageNumber => new ImageData(
+        `${baseName} ${imageNumber}`,
+        `assets/images/${folderName}/${imageNumber}.webp`,
+        `assets/images/${folderName}/miniatures/${imageNumber}.webp`
+    ));
   }
 }
