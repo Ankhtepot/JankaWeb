@@ -4,15 +4,15 @@
       <img mat-card-image [src]="profileImagePath" alt="Profile Image">
       {{ T.about_me_intro | text }}
       <br><br>
-      <span [innerHTML]="T.about_me_title1 | text: ETextStyle.Header"></span>
+      <span [innerHTML]="T.about_me_title1 | text" class="text-header"></span>
       <br>
       {{ T.about_me_part1 | text }}
       <br><br>
-      <span [innerHTML]="T.about_me_title2 | text: ETextStyle.Header"></span>
+      <span [innerHTML]="T.about_me_title2 | text" class="text-header"></span>
       <br>
       {{ T.about_me_part2 | text }}
       <br><br>
-      <span [innerHTML]="T.about_me_title3 | text: ETextStyle.Header"></span>
+      <span [innerHTML]="T.about_me_title3 | text" class="text-header"></span>
       <br>
       {{ T.about_me_part3 | text }}
     </p>

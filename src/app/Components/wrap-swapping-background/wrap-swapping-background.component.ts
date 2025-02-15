@@ -110,7 +110,7 @@ export class WrapSwappingBackgroundComponent implements OnInit, AfterViewInit, O
     this.secondaryImage.nativeElement.classList.add('fade-in');
 
     // Wait for the fade animation to complete before swapping images
-    await this.delay(2000);  // Matches the animation duration
+    await this.delay(this.transitionTime);  // Matches the animation duration
 
     this.swapBackgrounds(secondaryImageSrc, primaryImageSrc);
 
