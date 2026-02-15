@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ImageData} from "../Models/image-data";
+import { GENERATED_IMAGE_DATA } from '../shared/images_provider.gen';
 
 export enum Category {
   Paintings = "Paintings",
@@ -17,90 +18,85 @@ export enum ImageSize {
   Full = "full"
 }
 
-const dummyImages : ImageData[] = [
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-  new ImageData("placeholder","https://via.placeholder.com/1024","https://via.placeholder.com/500"),
-]
-
 @Injectable({
   providedIn: 'root'
 })
 export class ImagesService {
-  images: { [category: string]: ImageData[] } = {
-    Paintings: this.createImageData(
-      [1, 2, 3, 4, 5, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 24, 25, 26,
-        27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48,
-        50, 51, 52, 53, 54, 55, 56],
-      'Painting', 'paintings'),
-    // Paintings: [
-    //   new ImageData('Painting 2', 'assets/images/paintings/2.jpg','assets/images/paintings/miniatures/2.jpg' ),
-    //   new ImageData('Painting 3', 'assets/images/paintings/3.jpg', 'assets/images/paintings/miniatures/3.jpg'),
-    //   new ImageData('Painting 4', 'assets/images/paintings/4.jpg', 'assets/images/paintings/miniatures/4.jpg'),
-    //   new ImageData('Painting 5', 'assets/images/paintings/5.jpg', 'assets/images/paintings/miniatures/5.jpg'),
-    //   new ImageData('Painting 6', 'assets/images/paintings/6.jpg', 'assets/images/paintings/miniatures/6.jpg'),
-    //   new ImageData('Painting 8', 'assets/images/paintings/8.jpg', 'assets/images/paintings/miniatures/8.jpg'),
-    //   new ImageData('Painting 9', 'assets/images/paintings/9.jpg', 'assets/images/paintings/miniatures/9.jpg'),
-    //   new ImageData('Painting 10', 'assets/images/paintings/10.jpg', 'assets/images/paintings/miniatures/10.jpg'),
-    //   new ImageData('Painting 11', 'assets/images/paintings/11.jpg', 'assets/images/paintings/miniatures/11.jpg'),
-    //   new ImageData('Painting 12', 'assets/images/paintings/12.jpg', 'assets/images/paintings/miniatures/12.jpg'),
-    //   new ImageData('Painting 19', 'assets/images/paintings/19.jpg', 'assets/images/paintings/miniatures/19.jpg'),
-    //   new ImageData('Painting 21', 'assets/images/paintings/21.jpg', 'assets/images/paintings/miniatures/21.jpg'),
-    //   new ImageData('Painting 24', 'assets/images/paintings/24.jpg', 'assets/images/paintings/miniatures/24.jpg'),
-    //   new ImageData('Painting 26', 'assets/images/paintings/26.jpg', 'assets/images/paintings/miniatures/26.jpg'),
-    // ],
-    PhotoOne: dummyImages,
-    PhotoTwo: dummyImages,
-    PhotoThree: dummyImages,
-    PhotoFour: dummyImages,
-    Candles: dummyImages
+  // Build images map from generated data provider. Keys are folder names used by GENERATED_IMAGE_DATA.
+
+  private images: { [category: string]: ImageData[] } = {};
+
+  // Map our Category enum values to provider keys in GENERATED_IMAGE_DATA
+  private categoryToKey: { [c in Category]?: string } = {
+    [Category.Paintings]: 'paintings',
+    [Category.PhotoOne]: 'photos/category1',
+    [Category.PhotoTwo]: 'photos/category2',
+    [Category.PhotoThree]: 'photos/category3',
+    [Category.PhotoFour]: 'photos/category4',
+    [Category.Candles]: 'candles',
+    [Category.Profile]: 'profile_images'
   };
 
-  profileImages: ImageData[] = [
-    new ImageData('Profile photo 1', 'assets/images/profile_images/dance.jpg'),
-    new ImageData('Profile photo 2', 'assets/images/profile_images/greeting.jpg'),
-    new ImageData('Profile photo 3', 'assets/images/profile_images/leaning_on_wall.jpg'),
-  ]
+  constructor() {
+    this.loadGeneratedData();
+  }
 
-  constructor() { }
+  private loadGeneratedData() {
+    // Convert GENERATED_IMAGE_DATA into ImageData instances and store by provider key
+    for (const folder of Object.keys(GENERATED_IMAGE_DATA)) {
+      const items = GENERATED_IMAGE_DATA[folder] || [];
+      this.images[folder] = items.map(i => new ImageData(i.title || '', i.imageUrl, i.miniatureUrl));
+    }
 
+    // Ensure mapped categories exist (empty arrays if not present)
+    for (const catKey of Object.keys(this.categoryToKey)) {
+      const key = (this.categoryToKey as any)[catKey];
+      if (key && !this.images[key]) {
+        this.images[key] = [];
+      }
+    }
+  }
 
+  // Public API remains: accept Category for convenience. For custom keys, you can access GENERATED_IMAGE_DATA directly.
   getImagesData(category: Category) : ImageData[] {
-    return this.images[category].slice();
+    if (category === Category.All) {
+      const all = Object.values(this.images).reduce((acc, val) => acc.concat(val), [] as ImageData[]);
+      return all.slice();
+    }
+    const key = this.categoryToKey[category];
+    if (!key) { return []; }
+    return (this.images[key] || []).slice();
   }
 
   getImages(category: Category, sizeVariant: ImageSize = ImageSize.Full) : string[] {
-    return this.images[category].map(image => sizeVariant === ImageSize.Full ? image.imageUrl : image.miniatureUrl);
+    if (category === Category.All) {
+      const all = Object.values(this.images).reduce((acc, val) => acc.concat(val), [] as ImageData[]);
+      return all.map(image => sizeVariant === ImageSize.Full ? image.imageUrl : image.miniatureUrl);
+    }
+    const key = this.categoryToKey[category];
+    if (!key) { return []; }
+    return (this.images[key] || []).map(image => sizeVariant === ImageSize.Full ? image.imageUrl : image.miniatureUrl);
   }
 
   getRandomImageUrl(category: Category, imageSize: ImageSize = ImageSize.Miniature) {
     if (category === Category.All) {
-      const allImages = Object.values(this.images).reduce((acc, val) => acc.concat(val), []);
+      const allImages = Object.values(this.images).reduce((acc, val) => acc.concat(val), [] as ImageData[]);
+      if (allImages.length === 0) return '';
       const randomIndex = Math.floor(Math.random() * allImages.length);
       return imageSize === ImageSize.Full ? allImages[randomIndex].imageUrl : allImages[randomIndex].miniatureUrl;
     } else if (category === Category.Profile) {
-      return this.profileImages[Math.floor(Math.random() * this.profileImages.length)].imageUrl;
+      const key = this.categoryToKey[Category.Profile];
+      const list = key ? (this.images[key] || []) : [];
+      if (list.length === 0) return '';
+      return list[Math.floor(Math.random() * list.length)][imageSize === ImageSize.Full ? 'imageUrl' : 'miniatureUrl'];
     }
     else {
-      const randomIndex = Math.floor(Math.random() * this.images[category].length);
-      return imageSize == ImageSize.Full ? this.images[category][randomIndex].imageUrl : this.images[category][randomIndex].miniatureUrl;
+      const key = this.categoryToKey[category];
+      if (!key) return '';
+      const list = this.images[key] || [];
+      if (list.length === 0) return '';
+      const randomIndex = Math.floor(Math.random() * list.length);
+      return imageSize == ImageSize.Full ? list[randomIndex].imageUrl : list[randomIndex].miniatureUrl;
     }
-  }
-
-  private createImageData(imageNumbers: number[], baseName: string, folderName: string): ImageData[] {
-    return imageNumbers.map(
-      imageNumber => new ImageData(
-        `${baseName} ${imageNumber}`,
-        `assets/images/${folderName}/${imageNumber}.webp`,
-        `assets/images/${folderName}/miniatures/${imageNumber}.webp`
-    ));
   }
 }

@@ -37,7 +37,7 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   resizeSubscription: Subscription;
 
   swiper: Swiper;
-  fillImageUrl: string = 'assets/images/seamless-cosmic-background.jpg';
+  fillImageUrl: string = 'assets/images/seamless_cosm_1.jpg';
   images: string[];
 
   constructor(
