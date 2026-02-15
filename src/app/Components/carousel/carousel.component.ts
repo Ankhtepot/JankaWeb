@@ -73,7 +73,21 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private setSwiper() {
     this.images = this.getImages();
-    this.swiper = new Swiper('.swiper', {
+
+    // Ensure the container element exists (use element ref to scope)
+    const swiperEl: HTMLElement | null = this.elementRef.nativeElement.querySelector('.swiper');
+    if (!swiperEl) {
+      return;
+    }
+
+    // Destroy previous instance if any
+    if (this.swiper) {
+      try { this.swiper.destroy(true, true); } catch (e) { /* ignore */ }
+      this.swiper = undefined as any;
+    }
+
+    // Create Swiper on the element itself and enable observer options so it reacts to DOM changes (tabs/show-hide)
+    this.swiper = new Swiper(swiperEl as any, {
       slidesPerView: resolveSlidesCount(this.screenService.mediaBreakpoint$.value),
       slidesPerGroup: resolveSlidesPerCount(this.screenService.mediaBreakpoint$.value),
       centeredSlides: true,
@@ -86,19 +100,31 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
         pauseOnMouseEnter: true,
       },
       modules: [Navigation, Pagination, Autoplay],
+      // Use elements scoped inside the swiper container so they continue to work when the DOM is re-rendered
       pagination: {
-        el: '.swiper-pagination',
+        el: swiperEl.querySelector('.swiper-pagination') as any,
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: swiperEl.querySelector('.swiper-button-next') as any,
+        prevEl: swiperEl.querySelector('.swiper-button-prev') as any,
       },
       scrollbar: {
-        el: '.swiper-scrollbar',
+        el: swiperEl.querySelector('.swiper-scrollbar') as any,
       },
+      // Key: observe DOM changes/parents so Swiper updates when tabs hide/show or Angular changes slides
+      observer: true,
+      observeParents: true,
+      observeSlideChildren: true,
     });
-    this.elementRef.nativeElement.querySelector('.swiper').style.backgroundImage = `url('${this.fillImageUrl}')`
+
+    // Keep background image on the scoped element
+    swiperEl.style.backgroundImage = `url('${this.fillImageUrl}')`;
     this.setSlideStyles();
+
+    // Ensure Swiper updates after a tick (Angular might still be rendering slide content)
+    setTimeout(() => {
+      try { this.swiper.update(); } catch (e) { /* ignore */ }
+    }, 0);
   }
 
   getImages(): any[] {
@@ -122,27 +148,21 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.swiper) {
       this.swiper.destroy(true, true);
     }
-    this.removeSwiperElements();
+
+    // Allow Angular to re-render slides via the images array, then initialize swiper
     setTimeout(() => {
       this.setSwiper();
     });
   }
 
-  private removeSwiperElements() {
-    const swiperContainer = this.elementRef.nativeElement.querySelector('.swiper');
-    if (swiperContainer) {
-      swiperContainer.innerHTML = `
-        <div class="swiper-wrapper">
-          ${this.images.map(image => `
-            <div class="swiper-slide">
-              <img src="${image}" alt="Image" style="max-height: ${this.maxHeight};"/>
-            </div>`).join('')}
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev" style="color: white"></div>
-        <div class="swiper-button-next" style="color: white"></div>
-        <div class="swiper-scrollbar"></div>
-`;
+  // Public helper: force Swiper to update (useful when parent components switch tabs)
+  public refresh(): void {
+    if (!this.swiper) return;
+    try {
+      this.swiper.update();
+      this.swiper.slideToLoop(this.swiper.realIndex, 0); // keep current slide in loop mode
+    } catch (e) {
+      // ignore
     }
   }
 

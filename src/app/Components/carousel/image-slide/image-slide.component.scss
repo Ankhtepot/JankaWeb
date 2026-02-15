@@ -13,20 +13,21 @@
   align-items: flex-start;
   padding: 10px;
   box-sizing: border-box;
-  opacity: 0;
+  opacity: 0; /* hidden by default, show on hover */
   transition: opacity 0.3s ease-in-out;
-  pointer-events: none; /* Ensure the frame itself does not interfere with hover events */
+  pointer-events: none; /* keep frame itself non-interactive */
 }
 
 /* Style for the hover icon */
 .hover-icon {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   border-radius: 50%;
-  padding: 5px;
+  padding: 6px;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
   pointer-events: auto; /* Ensure the icon can be clicked */
+  margin-left: 8px;
 }
 
 /* Style for the sliding text */
@@ -40,13 +41,15 @@
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
-  opacity: 0;
+  opacity: 0; /* hidden by default */
   transition: all 0.3s ease-in-out;
+  pointer-events: none; /* text doesn't need interaction */
 }
 
 /* Hover effect for the frame */
 .swiper-slide:hover .hover-frame {
   opacity: 1;
+  pointer-events: auto; /* allow icon to be clicked when visible */
 }
 
 /* Hover effect for the icon to show text */

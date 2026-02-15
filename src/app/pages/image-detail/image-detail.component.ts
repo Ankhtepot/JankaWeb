@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ImagesService, Category } from '../../services/images.service';
 
 @Component({
   selector: 'app-image-detail',
@@ -24,13 +25,32 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private imagesService: ImagesService
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category')!;
       this.filename = params.get('filename')!;
+
+      // Try to resolve the image from the generated images provider (covers all categories/subfolders)
+      try {
+        const all = this.imagesService.getImagesData(Category.All);
+        const found = all.find(i => {
+          const imgFile = i.imageUrl ? i.imageUrl.split('/').pop() : '';
+          const miniFile = i.miniatureUrl ? i.miniatureUrl.split('/').pop() : '';
+          return imgFile === this.filename || miniFile === this.filename;
+        });
+        if (found) {
+          this.imageUrl = found.imageUrl;
+          return;
+        }
+      } catch (e) {
+        // if imagesService isn't available for some reason, fall back to default behavior
+      }
+
+      // Fallback: construct path based on category param (original behavior)
       this.imageUrl = `assets/images/${this.category.toLowerCase()}/${this.filename}`;
     });
   }
