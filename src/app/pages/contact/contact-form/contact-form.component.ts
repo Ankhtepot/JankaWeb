@@ -33,10 +33,10 @@ export class ContactFormComponent {
         environment.emailUserId)
         .then((response: EmailJSResponseStatus) => {
           console.log('SUCCESS!', response.status, response.text);
-          alert('Email sent successfully!');
+          alert(T.email_sent_success);
         }, (error) => {
           console.log('FAILED...', error);
-          alert('Failed to send email. Please try again later.');
+          alert(T.email_sent_failed);
         });
     }
   }

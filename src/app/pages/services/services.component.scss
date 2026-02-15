@@ -75,6 +75,17 @@ h2 {
   padding: 8px 0 6px;
 }
 
+::ng-deep .mat-mdc-card-header {
+  justify-content: center;
+  text-align: center;
+}
+
+::ng-deep .mat-mdc-card-header-text {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
 .bottom {
   box-sizing: border-box;
   height: 5em;

@@ -36,6 +36,7 @@ export enum T {
   candles_subtitle = 'Ručne robené sviečky s láskou a zámerom.', // podtitul na strance sviecky
   candles_footer_message = 'Každá sviečka vzniká ako malý rituál – pre pokoj, hojnosť a harmóniu.', // text pod fotkami sviecok
   write_me = 'Napíš mi', // nadpis na strance Kontakt
+  contact_info_header = 'Kontaktné informácie', // nadpis sekcie s kontaktmi
   p404_Title = '404', // nadpis 404 stranky
   p404_Message = 'Stránka nenájdená', // text na 404 strance
   go_home = 'Na hlavnú stránku', // text pro tlacitko na 404 strance
@@ -49,11 +50,14 @@ export enum T {
   input_message_required = 'Pole "Správa" je povinné.',
   button_send = 'Odoslať',
   address_label = 'Adresa',
-  address_value = 'Tobias Klima, 12345, Praha 5',
+  address_value = 'Janka Joly Zemianek, 12345, Praha 5',
   phone_label = 'Telefón',
-  phone_value = '+420 123 456 789',
+  phone_value = '+421 948 109 303',
   email_label = 'Email',
   email_value = 'foteniejeradost@gmail.com',
   expand_image = 'Zväčšiť obrázok',
-  value_copied = 'bolo skopírované do pamäte'
+  value_copied = 'bolo skopírované do pamäte',
+  copy_text = 'Kopírovať',
+  email_sent_success = 'Email bol úspešne odoslaný!',
+  email_sent_failed = 'Email sa nepodarilo odoslať. Skúste to prosím neskôr.'
 }

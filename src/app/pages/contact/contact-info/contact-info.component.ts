@@ -14,8 +14,8 @@ export class ContactInfoComponent {
   icon: InputSignal<string> = input<string>(unassignedIcon);
   labelWidth: InputSignal<string> = input<string>('150px');
   canBeCopied: InputSignal<boolean> = input<boolean>(false);
-  copyText: InputSignal<string> = input<string>('Copy');
-  successCopyMessage: InputSignal<string> = input<string>('copied into the Clipboard!');
+  copyText: InputSignal<string> = input<string>(T.copy_text);
+  successCopyMessage: InputSignal<string> = input<string>(T.value_copied);
 
   isHovered = false;
 
