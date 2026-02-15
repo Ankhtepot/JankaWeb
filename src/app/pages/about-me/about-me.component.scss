@@ -19,7 +19,9 @@
 
 @media (max-width: 500px) {
   .content {
-    margin-top: 120px // Smaller shift on mobile to keep more space at the bottom
+    margin-top: 120px; // Smaller shift on mobile to keep more space at the bottom
+    padding: 16px;
+    border-radius: 16px;
   }
 }
 
@@ -47,6 +49,11 @@
       height: auto;
       float: none; // Remove float to center the image
       margin-right: 0; // Remove margin to center the image
+      margin-bottom: 12px;
+    }
+
+    .text-header {
+      font-size: 20px;
     }
   }
 

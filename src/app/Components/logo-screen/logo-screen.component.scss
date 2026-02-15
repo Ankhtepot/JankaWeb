@@ -14,7 +14,17 @@
 @media (max-width: 600px) {
   // left so its in the middle of the screen
   .logo {
-    left: calc(50% - 100px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    width: 130px;
+    height: 65px;
   }
 }
 

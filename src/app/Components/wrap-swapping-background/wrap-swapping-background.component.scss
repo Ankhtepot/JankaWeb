@@ -46,7 +46,11 @@
 
 @media (max-width: 600px) {
   .shiny-border {
-    margin-top: 30px // Smaller shift on mobile to keep more space at the bottom
+    margin-top: 30px; // Smaller shift on mobile to keep more space at the bottom
+  }
+
+  .content {
+    padding: 16px;
   }
 }
 
@@ -79,4 +83,3 @@
   animation-name: fadeIn;
   animation-fill-mode: forwards;
 }
-

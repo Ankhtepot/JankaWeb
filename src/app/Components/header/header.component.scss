@@ -67,14 +67,31 @@
     }
 
     a {
-      font-size: 20px;
-      padding: 1em 15px;
+      font-size: 18px;
+      padding: 0.9em 12px;
+      margin-left: 0.5rem;
     }
 
     .logo {
       width: 100px;
       height: 50px;
       margin-left: 0.5em;
+    }
+
+    .nav-container {
+      flex-wrap: wrap;
+      row-gap: 0.5rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .title {
+      font-size: 18px;
+    }
+
+    a {
+      font-size: 16px;
+      padding: 0.7em 10px;
     }
   }
 
@@ -129,4 +146,3 @@
 mat-icon {
   color: $header-color;
 }
-
