@@ -6,8 +6,8 @@
   bottom: 0;
   overflow: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 img {
@@ -17,10 +17,7 @@ img {
   transform: scale(1);
   transform-origin: center; /* Ensure scaling is centered */
   cursor: grab;
-}
-
-img:active {
-  cursor: grabbing;
+  margin: auto; /* center when smaller than container, no negative offsets when larger */
 }
 
 .controls {
