@@ -5,7 +5,7 @@
     <mat-tab [label]="getText(T.paintings_header)">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>{{ T.paintings_subtitle | text }}</mat-card-title>
+          <mat-card-title class="subtitle">{{ T.paintings_subtitle | text }}</mat-card-title>
         </mat-card-header>
       </mat-card>
     </mat-tab>
@@ -13,7 +13,7 @@
     <mat-tab [label]="getText(T.photography_header)">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>{{ T.photography_subtitle }}</mat-card-title>
+          <mat-card-title class="subtitle">{{ T.photography_subtitle }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <mat-tab-group #tab_group_photo animationDuration="500ms" class="custom-tabs">
@@ -21,7 +21,7 @@
             <mat-tab [label]="getText(T.photography_category_1)">
               <mat-card>
                 <mat-card-header>
-                  <mat-card-title>{{ T.photography_category1_subtitle }}</mat-card-title>
+                  <mat-card-title class="subtitle">{{ T.photography_category1_subtitle }}</mat-card-title>
                 </mat-card-header>
               </mat-card>
             </mat-tab>
@@ -29,7 +29,7 @@
             <mat-tab [label]="getText(T.photography_category_2)">
               <mat-card>
                 <mat-card-header>
-                  <mat-card-title>{{ T.photography_category2_subtitle }}</mat-card-title>
+                  <mat-card-title class="subtitle">{{ T.photography_category2_subtitle }}</mat-card-title>
                 </mat-card-header>
               </mat-card>
             </mat-tab>
@@ -37,7 +37,7 @@
             <mat-tab [label]="getText(T.photography_category_3)">
               <mat-card>
                 <mat-card-header>
-                  <mat-card-title>{{ T.photography_category3_subtitle }}</mat-card-title>
+                  <mat-card-title class="subtitle">{{ T.photography_category3_subtitle }}</mat-card-title>
                 </mat-card-header>
               </mat-card>
             </mat-tab>
@@ -45,7 +45,7 @@
             <mat-tab [label]="getText(T.photography_category_4)">
               <mat-card>
                 <mat-card-header>
-                  <mat-card-title>{{ T.photography_category4_subtitle }}</mat-card-title>
+                  <mat-card-title class="subtitle">{{ T.photography_category4_subtitle }}</mat-card-title>
                 </mat-card-header>
               </mat-card>
             </mat-tab>
@@ -58,7 +58,7 @@
     <mat-tab [label]="getText(T.candles_header)">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>{{ T.candles_subtitle }}</mat-card-title>
+          <mat-card-title class="subtitle">{{ T.candles_subtitle }}</mat-card-title>
         </mat-card-header>
       </mat-card>
     </mat-tab>
