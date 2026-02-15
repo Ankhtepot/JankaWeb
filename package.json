@@ -5,8 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prebuild": "node src/scripts/generate_seo_assets.js --env=prod",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "pretest": "node src/scripts/generate_seo_assets.js --env=dev"
   },
   "private": true,
   "dependencies": {

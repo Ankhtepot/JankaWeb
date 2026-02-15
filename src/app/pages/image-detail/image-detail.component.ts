@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ImagesService, Category } from '../../services/images.service';
 import { ScreenService } from '../../services/screen.service';
 import { Subscription } from 'rxjs';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-image-detail',
@@ -31,13 +32,22 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
     private route: ActivatedRoute,
     private renderer: Renderer2,
     private imagesService: ImagesService,
-    private screenService: ScreenService
+    private screenService: ScreenService,
+    private seo: SeoService
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category')!;
       this.filename = params.get('filename')!;
+
+      this.seo.update({
+        title: `Detail | ${this.filename.replace(/[-_]/g, ' ')}`,
+        description: `Detail obrazka ${this.filename.replace(/[-_]/g, ' ')}.`,
+        path: `/detail/${this.filename}/${this.category}`,
+        image: `assets/images/${this.category.toLowerCase()}/${this.filename}`,
+        type: 'article'
+      });
 
       // Try to resolve the image from the generated images provider (covers all categories/subfolders)
       try {

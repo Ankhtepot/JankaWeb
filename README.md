@@ -1,32 +1,62 @@
 # JankaWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+Minimal notes for running and maintaining the site.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Node.js + npm (version used by your Angular CLI)
 
-## Code scaffolding
+## Development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Start the dev server:
+
+```bash
+npm start
+```
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Build for production:
 
-## Running unit tests
+```bash
+npm run build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This runs a small SEO asset generator before the build to keep `robots.txt` and `sitemap.xml` in sync with `environment.seo.baseUrl`.
 
-## Running end-to-end tests
+## SEO assets generator
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The script lives in `src/scripts/generate_seo_assets.js`.
 
-## Further help
+- Default: uses `src/environments/environment.prod.ts`
+- Dev mode: pass `--env=dev` to use `src/environments/environment.ts`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Manual run examples:
 
-## Deploy production
+```bash
+node src/scripts/generate_seo_assets.js --env=prod
+node src/scripts/generate_seo_assets.js --env=dev
+```
 
+Note: `src/index.html` contains fallback OG/canonical tags. If you change `environment.seo.baseUrl`, update those tags manually for now (or automate them in the generator later).
+
+## Images pipeline
+
+- Before running `src/scripts/prepare_images.bat`, convert new images to `.webp` by hand, folder by folder with convert_images.bat script (not part of the repository).
+- Then run the script (it wraps `prepare_images.ps1`) to regenerate image metadata.
+
+Example:
+
+```bat
+src\scripts\prepare_images.bat src\assets\images
+```
+
+## Deploy
+
+```bash
 ng deploy --base-href=/JankaWeb/
-https://ankhtepot.github.io/JankaWeb/about-me
+```
+
+Current public URL:
+
+- https://ankhtepot.github.io/JankaWeb/about-me

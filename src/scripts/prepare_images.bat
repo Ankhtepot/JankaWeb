@@ -31,6 +31,8 @@ IF "%~1"=="/?" (
   EXIT /B 0
 )
 
+REM NOTE: Before running this script, convert new images to .webp by hand, folder by folder.
+
 REM Call PowerShell script with ExecutionPolicy bypass. Forward all args.
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%SCRIPT_DIR%prepare_images.ps1" %*
 SET EXITCODE=%ERRORLEVEL%

@@ -3,6 +3,7 @@ import {Category} from "../../services/images.service";
 import {T, TextService} from "../../services/text.service";
 import {CarouselComponent} from "../../Components/carousel/carousel.component";
 import {MatTabGroup} from "@angular/material/tabs";
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-services',
@@ -19,11 +20,18 @@ export class ServicesComponent implements OnInit, OnDestroy {
   lastPhotoSubTabIndex: number = -1;
 
   constructor(
-    private textService: TextService
+    private textService: TextService,
+    private seo: SeoService
   ) {
   }
 
   ngOnInit(): void {
+    this.seo.update({
+      title: 'Sluzby | Janka Zemianek',
+      description: 'Fotografia, obrazy a rucne vyrobene sviecky. Pozrite si ponuku a portfolia.',
+      path: '/services',
+      type: 'website'
+    });
     this.footerText = this.getText(T.paintings_footer_message);
     this.mainTabGroup.selectedIndexChange.subscribe((index: number) => {
       this.handleTabChange(index);
