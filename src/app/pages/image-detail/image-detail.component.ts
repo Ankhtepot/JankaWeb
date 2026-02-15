@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ImagesService, Category } from '../../services/images.service';
+import { ScreenService } from '../../services/screen.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-image-detail',
@@ -23,10 +25,13 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
   private scrollLeft: number = 0;
   private scrollTop: number = 0;
 
+  private wheelSubscription: Subscription;
+
   constructor(
     private route: ActivatedRoute,
     private renderer: Renderer2,
-    private imagesService: ImagesService
+    private imagesService: ImagesService,
+    private screenService: ScreenService
   ) {}
 
   ngOnInit(): void {
@@ -61,6 +66,23 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
 
     img.draggable = false;
 
+    // Ensure initial sizing after the image loads
+    img.onload = () => this.applyScale();
+    if (img.complete && img.naturalWidth) {
+      this.applyScale();
+    }
+
+    // Mouse wheel zoom using ScreenService
+    this.wheelSubscription = this.screenService.mouseWheel$.subscribe((evt: WheelEvent) => {
+      if (!container || !container.contains(evt.target as Node)) return;
+      evt.preventDefault();
+      if (evt.deltaY < 0) {
+        this.zoomIn();
+      } else if (evt.deltaY > 0) {
+        this.zoomOut();
+      }
+    });
+
     // Mouse events
     this.renderer.listen(container, 'mousedown', this.onMouseDown.bind(this));
     this.renderer.listen(container, 'mouseup', this.onMouseUp.bind(this));
@@ -85,6 +107,9 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
     this.renderer.listen(container, 'touchstart', null);
     this.renderer.listen(container, 'touchend', null);
     this.renderer.listen(container, 'touchmove', null);
+    if (this.wheelSubscription) {
+      this.wheelSubscription.unsubscribe();
+    }
   }
 
   zoomMax() {
@@ -115,8 +140,39 @@ export class ImageDetailComponent implements OnInit, AfterViewInit, OnDestroy {
 
   applyScale() {
     const img = this.imageElement.nativeElement;
-    img.style.transform = `scale(${this.scale})`;
-    // img.style.transformOrigin = 'center'; // Center the image
+    const container = img.parentElement as HTMLElement;
+    if (!img || !container) return;
+
+    const naturalW = img.naturalWidth || img.width;
+    const naturalH = img.naturalHeight || img.height;
+    if (!naturalW || !naturalH) return;
+
+    // Fit to container as base size; scale from that (keeps slider behavior consistent)
+    const fitScale = Math.min(
+      container.clientWidth / naturalW,
+      container.clientHeight / naturalH,
+      1
+    );
+    const baseW = Math.round(naturalW * fitScale);
+    const baseH = Math.round(naturalH * fitScale);
+    const scaledW = Math.round(baseW * this.scale);
+    const scaledH = Math.round(baseH * this.scale);
+
+    img.style.width = scaledW + 'px';
+    img.style.height = scaledH + 'px';
+    img.style.maxWidth = 'none';
+    img.style.maxHeight = 'none';
+    img.style.transform = '';
+
+    // Center viewport after layout so the image stays centered when scaling
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const maxScrollLeft = Math.max(0, container.scrollWidth - container.clientWidth);
+        const maxScrollTop = Math.max(0, container.scrollHeight - container.clientHeight);
+        container.scrollLeft = Math.round(maxScrollLeft / 2);
+        container.scrollTop = Math.round(maxScrollTop / 2);
+      });
+    });
   }
 
   private onMouseDown(event: MouseEvent): void {

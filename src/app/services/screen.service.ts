@@ -12,10 +12,12 @@ export class ScreenService implements OnDestroy {
   public scrolledDown$: BehaviorSubject<boolean> = new BehaviorSubject(null);
   public scrolledToTop$: BehaviorSubject<boolean> = new BehaviorSubject(null);
   public headerVisibilityChanged$: Subject<boolean> = new Subject();
+  public mouseWheel$: Subject<WheelEvent> = new Subject();
 
   constructor() {
     this.init();
     this.initScrollEvents();
+    this.initWheelEvents();
   }
 
   init() {
@@ -53,6 +55,16 @@ export class ScreenService implements OnDestroy {
         } else {
           this.scrolledToTop$.next(false);
         }
+      });
+  }
+
+  private initWheelEvents() {
+    fromEvent<WheelEvent>(window, 'wheel')
+      .pipe(
+        takeUntil(this._unsubscriber$)
+      )
+      .subscribe((evt: WheelEvent) => {
+        this.mouseWheel$.next(evt);
       });
   }
 
