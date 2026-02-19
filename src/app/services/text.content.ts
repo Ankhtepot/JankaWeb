@@ -50,7 +50,7 @@ export enum T {
   input_message_required = 'Pole "Správa" je povinné.',
   button_send = 'Odoslať',
   address_label = 'Adresa',
-  address_value = 'Janka Joly Zemianek, 12345, Praha 5',
+  address_value = 'Janka Joly Zemianek, Komenského 19, 03601 Martin',
   phone_label = 'Telefón',
   phone_value = '+421 948 109 303',
   email_label = 'Email',
