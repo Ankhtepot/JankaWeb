@@ -1,16 +1,16 @@
 export enum T {
-  aboutMe_anchor = 'O me', // tlacitko na presun na stranku O me
-  services_anchor = 'Sluzby', // tlacitko na presun na stranku Sluzby
+  aboutMe_anchor = 'O mne', // tlacitko na presun na stranku O me
+  services_anchor = 'Služby', // tlacitko na presun na stranku Sluzby
   contact_anchor = 'Kontakt', // tlacitko na presun na stranku Kontakt
   services_header = 'Čo ponúkam', // nadpis na strance sluzby
-  about_me_intro = 'Volám sa Janka Zemianek, moje umelecké meno je Joly. Som tvorivá duša, ktorá vníma krásu v momentoch a detailoch. Tvorenie je pre mňa prirodzený spôsob vyjadrenia a porozumenia svetu okolo mňa. Verím v tvorbu, ktorá má hlbší význam. Každé dielo vzniká s rešpektom k človeku, pre ktorého je určené. Tvorenie je pre mňa spôsob, ako sa dotknúť emócií, ktoré sa nedajú pomenovať slovami, ale len precítiť. V každom obraze, fotografii a plameni sviečky hľadám rovnováhu medzi jemnosťou a hĺbkou, medzi tým, čo je viditeľné a tým, čo ostáva skryté. Tvorím diela, ktoré nie sú len dekoráciou, ale pozvaním na návrat k sebe a k tomu, čo je podstatné. Tvorím so zámerom a úctou. Tvorím s láskou a verím, že každé dielo má svoju vlastnú dušu, tak ako každý z nás. ✨🤍',
+  about_me_intro = 'Volám sa Janka Zemianek, moje umelecké meno je Joly. Som tvorivá duša, ktorá vníma krásu v momentoch a detailoch. Tvorenie je pre mňa prirodzený spôsob vyjadrenia a porozumenia svetu okolo mňa. Verím v tvorbu, ktorá má hlbší význam. Každé dielo vzniká s rešpektom k človeku, pre ktorého je určené. Tvorenie je pre mňa spôsob, ako sa dotknúť emócií, ktoré sa nedajú pomenovať slovami, ale len precítiť. V každom obraze, fotografii a plameni sviečky hľadám rovnováhu medzi jemnosťou a hĺbkou, medzi tým, čo je viditeľné a tým, čo ostáva skryté. ✨🤍',
   about_me_title1 = 'Fotografka 📸',
   about_me_part1 = 'Som rodinná fotografka so zameraním na deti. Vo svojej práci sa sústreďujem na prirodzené momenty, emócie a autentické prepojenie medzi rodičmi a deťmi. Mojím cieľom je zachytiť skutočné chvíle, smiech a dotyky, ktoré tvoria jedinečný príbeh každej rodiny. Hľadám okamih, ktorý sa stáva večnosťou v podobe fotografie.',
   about_me_title2 = 'Maliarka 🎨',
   about_me_part2 = 'Popri fotografovaní sa venujem aj maľovaniu obrazov a ručnej výrobe sviečok. Všetko, čo tvorím, vzniká s myšlienkou priniesť do každodenného života viac radosti a lásky. Maľujem energetické obrazy s jasným zámerom a silnou energiou. Každý obraz je pre mňa meditáciou a zároveň cestou, ako preniesť pocity na plátno. Fotografovanie aj maľbu vnímam ako rovnocenné formy vizuálneho rozprávania príbehov, obe vychádzajú z detailu, nálady a autenticity. 🎨🌙',
   about_me_title3 = 'Sviečky 🕯️',
   about_me_part3 = 'Ručná výroba sviečok je pre mňa pomalý a vedomý proces. Každá sviečka vzniká s dôrazom na detail. Každá sviečka vzniká s jasným zámerom priniesť lásku, hojnosť, zdravie alebo pokoj a harmóniu. Sviečky tak prinášajú klientovi to, čo túži posilniť alebo zhmotniť. Pri zapálení sa stáva súčasťou osobného rituálu a vedomého zastavenia sa. 🔥',
-  about_me_title4 = 'Tvorba s duší ✨',
+  about_me_title4 = 'Tvorba s dušou ✨',
   about_me_part4 = 'Tvorenie je pre mňa spôsob, ako sa dotýkať emócií, ktoré sa nedajú pomenovať slovami ale len precítiť. V každom obraze, fotografií a plameni sviečky, hľadám rovnováhu medzi jemnosťou a hĺbkou, medzi tým, čo je viditeľné a tým, čo ostáva skryté.',
   about_me_outro1 = 'Tvorím diela, ktoré nie sú len dekoráciou, ale pozvaním na návrat k sebe a k tomu, čo je podstatné. 🌿',
   about_me_outro2 = 'Tvorím so zámerom a úctou. ✨🤍',

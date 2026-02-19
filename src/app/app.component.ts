@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.backgroundImageUrls = this.randomizePipe.transform(this.imagesService.getImages(Category.Paintings, ImageSize.Full));
+    this.backgroundImageUrls = this.randomizePipe.transform(this.imagesService.getImages(Category.All, ImageSize.Full));
   }
 
 }

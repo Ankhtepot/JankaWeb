@@ -37,7 +37,6 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   resizeSubscription: Subscription;
 
   swiper: Swiper;
-  fillImageUrl: string = 'assets/images/seamless_cosm_1.jpg';
   images: string[];
 
   constructor(
@@ -117,8 +116,6 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
       observeSlideChildren: true,
     });
 
-    // Keep background image on the scoped element
-    swiperEl.style.backgroundImage = `url('${this.fillImageUrl}')`;
     this.setSlideStyles();
 
     // Ensure Swiper updates after a tick (Angular might still be rendering slide content)
@@ -156,15 +153,15 @@ export class CarouselComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   // Public helper: force Swiper to update (useful when parent components switch tabs)
-  public refresh(): void {
-    if (!this.swiper) return;
-    try {
-      this.swiper.update();
-      this.swiper.slideToLoop(this.swiper.realIndex, 0); // keep current slide in loop mode
-    } catch (e) {
-      // ignore
-    }
-  }
+  // public refresh(): void {
+  //   if (!this.swiper) return;
+  //   try {
+  //     this.swiper.update();
+  //     this.swiper.slideToLoop(this.swiper.realIndex, 0); // keep current slide in loop mode
+  //   } catch (e) {
+  //     // ignore
+  //   }
+  // }
 
   protected readonly T = T;
 }
