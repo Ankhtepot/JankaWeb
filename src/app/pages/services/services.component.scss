@@ -1,3 +1,4 @@
+@use "../../../styles/typography" as typo;
 @import "../../../styles/colors";
 
 $tabs_background_color: rgba(255, 255, 255, 0.6);
@@ -57,7 +58,7 @@ mat-card-footer {
 h2 {
   $background-color: 255;
   box-sizing: border-box;
-  font-family: "Pacifico", cursive;
+  @include typo.font-header;
   color: dodgerblue;
   background: rgba($background-color, $background-color, $background-color, 0.7);
   border-radius: 25px;
@@ -70,9 +71,16 @@ h2 {
   display: block;
   text-align: center;
   color: $header-color;
-  font-weight: 600;
+  font-family: var(--font-header), cursive;
+  font-weight: var(--font-header-weight);
   letter-spacing: 0.3px;
   padding: 8px 0 6px;
+}
+
+::ng-deep .mat-mdc-tab .mdc-tab__text-label {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--font-header), sans-serif;
 }
 
 ::ng-deep .mat-mdc-card-header {

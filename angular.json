@@ -53,6 +53,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              {
+                "glob": "CNAME",
+                "input": "src/assets",
+                "output": "/"
+              },
               "src/robots.txt",
               "src/sitemap.xml"
             ],
@@ -124,6 +129,11 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              {
+                "glob": "CNAME",
+                "input": "src/assets",
+                "output": "/"
+              },
               "src/robots.txt",
               "src/sitemap.xml"
             ],

@@ -1,3 +1,4 @@
+@use "../../../styles/typography" as typo;
 @import "../../../styles/colors";
 
 .page-not-found {
@@ -11,7 +12,7 @@
   mat-card {
     $opacity: 0.8;
     padding: 2em;
-    font-family: 'Pacifico', cursive;
+    @include typo.font-header;
     border-radius: 250px;
     background: linear-gradient(45deg,
       rgba(255, 0, 0, $opacity),

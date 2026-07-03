@@ -1,8 +1,8 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 @use './styles/themes/all' as themes;
+@use './styles/typography';
 
 // Plus imports for other components in your app.
 @import 'swiper/swiper-bundle.css';
@@ -18,9 +18,3 @@
 @include mat.all-component-themes(themes.$janka-web-theme);
 
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-h2 {
-  font-family: "Pacifico", cursive;
-}

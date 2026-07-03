@@ -6,6 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "prebuild": "node src/scripts/generate_seo_assets.js --env=prod",
+    "predeploy": "node src/scripts/generate_seo_assets.js --env=prod",
+    "deploy": "ng deploy --build-target=janka-web:build:production --base-href=/ --cname=www.jolyart.net --dir=dist/janka-web/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "pretest": "node src/scripts/generate_seo_assets.js --env=dev"

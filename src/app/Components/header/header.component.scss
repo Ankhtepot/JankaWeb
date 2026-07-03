@@ -1,3 +1,4 @@
+@use "../../../styles/typography" as typo;
 @import "../../../styles/colors";
 
 .header {
@@ -8,7 +9,7 @@
   z-index: 1000; // High z-index to keep it above other content
   background-color: turquoise; // White background
   height: 110px;
-  font-family: "Pacifico", cursive;
+  @include typo.font-header;
 
   h1 {
     color: black;
@@ -41,7 +42,7 @@
   a {
     color: blue; // Text color for inactive links
     text-decoration: none; // No underline
-    font-family: "Pacifico", cursive;
+    @include typo.font-header;
     font-weight: bold;
     font-size: 26px;
     padding: 1.2em 30px; // Padding for better click area

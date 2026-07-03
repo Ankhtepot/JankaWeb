@@ -54,9 +54,17 @@ src\scripts\prepare_images.bat src\assets\images
 ## Deploy
 
 ```bash
-ng deploy --base-href=/JankaWeb/
+npm run deploy
 ```
 
-Current public URL:
+This publishes a production build to the `gh-pages` branch with:
 
-- https://ankhtepot.github.io/JankaWeb/about-me
+- production build target `janka-web:build:production`
+- `base-href=/` for the custom domain root
+- `CNAME=www.jolyart.net`
+- publish directory `dist/janka-web/browser`
+
+Public URLs:
+
+- https://www.jolyart.net
+- https://ankhtepot.github.io/JankaWeb/

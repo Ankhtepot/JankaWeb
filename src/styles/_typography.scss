@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "MV Boli";
+  src: url("/assets/fonts/mvboli.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --font-mv-boli: "MV Boli", cursive;
+  --font-dancing-script: "Dancing Script", cursive;
+  --font-pacifico: "Pacifico", cursive;
+  --font-roboto: "Roboto", "Helvetica Neue", sans-serif;
+  --font-cactus-classical-serif: "Cactus Classical Serif", serif;
+  --font-exo-2: "Exo 2", sans-serif;
+  --font-header: var(--font-mv-boli);
+  --font-text: var(--font-roboto);
+  --font-header-weight: 800;
+}
+
+@mixin font-text {
+  font-family: var(--font-text), sans-serif;
+}
+
+@mixin font-header($weight: var(--font-header-weight)) {
+  font-family: var(--font-header), cursive;
+  font-weight: $weight !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; @include font-text; }
+
+p, li, label, input, textarea, select, button, a, span {
+  @include font-text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include font-header;
+}
