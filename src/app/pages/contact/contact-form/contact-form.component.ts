@@ -20,7 +20,7 @@ export class ContactFormComponent {
     if (form.valid) {
       const body = {
         to_name: 'Janka',
-        web_name: 'JankaWeb',
+        web_name: 'JolyArt',
         from_name: this.contact.name,
         email: this.contact.email,
         message: this.contact.message
